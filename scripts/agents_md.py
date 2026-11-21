@@ -749,7 +749,7 @@ def postcode6_scope(b, claims=True):
     t = next(t for t in b.types if t["api"] == "postcode6")
     rows = b.db.sql(
         f"SELECT gemeentecode, count(*), string_agg(postcode, ', ' ORDER BY postcode) "
-        f"FROM '{b.parquet(t)}' GROUP BY ALL ORDER BY 2 DESC"
+        f"FROM '{b.parquet(t)}' GROUP BY ALL ORDER BY 2 DESC, 1"
     ).fetchall()
     main, rest = rows[0], rows[1:]
     text = f"Het uittreksel bevat {n(main[1])} postcodegebieden in gemeente {main[0]}"
