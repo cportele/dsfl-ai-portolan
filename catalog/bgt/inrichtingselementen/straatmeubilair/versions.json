@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.102681Z",
+      "breaking": false,
+      "assets": {
+        "straatmeubilair.parquet": {
+          "sha256": "ecb6c910aafbc5a9ba9dbb13032e81393e1590c2838bd34068919ee2859141e8",
+          "size_bytes": 15464,
+          "href": "bgt/inrichtingselementen/straatmeubilair/straatmeubilair.parquet",
+          "source_path": "straatmeubilair.parquet",
+          "source_mtime": 1795164563.0492413,
+          "mtime": 1795164563.0492413,
+          "feature_count": 121,
+          "schema_fingerprint": "bfeafd7eb7e0ff4b"
+        },
+        "thumbnail.png": {
+          "sha256": "5d20155e33e850e435582970597d0ddc5a2a8232ef0fd317d2669eff22967356",
+          "size_bytes": 19128,
+          "href": "bgt/inrichtingselementen/straatmeubilair/thumbnail.png",
+          "mtime": 1795263049.7935963
+        }
+      },
+      "changes": [
+        "straatmeubilair.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

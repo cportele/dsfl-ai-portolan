@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.105713Z",
+      "breaking": false,
+      "assets": {
+        "ondersteunendwegdeel.parquet": {
+          "sha256": "ee7efd27597cad3205611c3127443bb0ce73d271e88177129ae953ba33aaca44",
+          "size_bytes": 4274755,
+          "href": "bgt/topografie/ondersteunendwegdeel/ondersteunendwegdeel.parquet",
+          "source_path": "ondersteunendwegdeel.parquet",
+          "source_mtime": 1795164528.6395125,
+          "mtime": 1795164528.6395125,
+          "feature_count": 10770,
+          "schema_fingerprint": "b1849847376c8839"
+        },
+        "thumbnail.png": {
+          "sha256": "36ad3d40b2915d1e5894d379ccab523f06acdb6d9845b8f8b256ff8aa57e0fd5",
+          "size_bytes": 110401,
+          "href": "bgt/topografie/ondersteunendwegdeel/thumbnail.png",
+          "mtime": 1795263044.0708916
+        }
+      },
+      "changes": [
+        "ondersteunendwegdeel.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

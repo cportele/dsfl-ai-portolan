@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.103888Z",
+      "breaking": false,
+      "assets": {
+        "ongeclassificeerdobject.parquet": {
+          "sha256": "9a4f37fa33f74cfa8561e6b3f720b3c037491b5ea309f0cf283f89b3e15e7201",
+          "size_bytes": 9479,
+          "href": "bgt/overig/ongeclassificeerdobject/ongeclassificeerdobject.parquet",
+          "source_path": "ongeclassificeerdobject.parquet",
+          "source_mtime": 1795164558.8075569,
+          "mtime": 1795164558.8075569,
+          "feature_count": 3,
+          "schema_fingerprint": "67edbc6b4ec27294"
+        },
+        "thumbnail.png": {
+          "sha256": "b3b5375074931b3a1895c5907ee09f44a5b2e5217827630af4109f2f6f501252",
+          "size_bytes": 7621,
+          "href": "bgt/overig/ongeclassificeerdobject/thumbnail.png",
+          "mtime": 1795263049.4874759
+        }
+      },
+      "changes": [
+        "ongeclassificeerdobject.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

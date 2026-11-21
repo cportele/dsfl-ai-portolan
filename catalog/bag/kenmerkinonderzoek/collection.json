@@ -1,0 +1,168 @@
+{
+  "type": "Collection",
+  "id": "bag/kenmerkinonderzoek",
+  "stac_version": "1.1.0",
+  "description": "Een kenmerk (attribuut of relatie) van een BAG-object waarvoor wordt of werd onderzocht of het gegeven juist is. Als een gegeven in onderzoek is, mogen gebruikers een ander gegeven gebruiken; de bronhouder moet het onderzoek binnen zes maanden afronden. Elk record heeft een eigen geldigheidsperiode, los van de versies van het object. Het plaatsen in onderzoek levert een record met inOnderzoek = true; het afronden beëindigt dat record en levert een nieuw record met inOnderzoek = false. Kenmerken per objecttype: woonplaats: naam, geometrie, status; openbareruimte: naam, type, status, ligt in; nummeraanduiding: huisnummer, huisletter, huisnummertoevoeging, postcode, type adresseerbaar object, status, ligt in, ligt aan; pand: geometrie, oorspronkelijk bouwjaar, status; verblijfsobject: geometrie, gebruiksdoel, oppervlakte, status, maakt deel uit van, heeft als hoofdadres, heeft als nevenadres; standplaats: geometrie, status, heeft als hoofdadres, heeft als nevenadres; ligplaats: geometrie, status, heeft als hoofdadres, heeft als nevenadres. Met historie: een rij per voorkomen (versie) van een object, sleutel identificatie en voorkomenidentificatie. Dezelfde eigenschappen als de collectie [kenmerkinonderzoek](https://bag.ldproxy.net/bag/collections/kenmerkinonderzoek) van de API. Voor agents: [AGENTS.md](AGENTS.md).",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "license",
+      "href": "https://creativecommons.org/publicdomain/zero/1.0/deed.nl",
+      "title": "License"
+    },
+    {
+      "rel": "via",
+      "href": "https://www.kadaster.nl/zakelijk/producten/adressen-en-gebouwen/bag-2.0-extract",
+      "type": "text/html",
+      "title": "Original source"
+    },
+    {
+      "rel": "agents",
+      "href": "./AGENTS.md",
+      "type": "text/markdown",
+      "title": "Agent/LLM usage guide"
+    },
+    {
+      "rel": "describedby",
+      "href": "./README.md",
+      "type": "text/markdown",
+      "title": "Human-readable documentation"
+    }
+  ],
+  "updated": "2026-11-21T12:23:28Z",
+  "title": "Kenmerk in onderzoek (BAG)",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          5.306458635645041,
+          52.10838438725852,
+          5.484329664176055,
+          52.21915384787237
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2010-10-05T00:00:00Z",
+          null
+        ]
+      ]
+    }
+  },
+  "license": "CC0-1.0",
+  "providers": [
+    {
+      "name": "Kadaster",
+      "roles": [
+        "producer",
+        "licensor"
+      ],
+      "url": "https://www.kadaster.nl/"
+    },
+    {
+      "name": "interactive instruments GmbH",
+      "roles": [
+        "processor",
+        "host"
+      ],
+      "url": "https://www.interactive-instruments.de"
+    }
+  ],
+  "assets": {
+    "kenmerkinonderzoek": {
+      "href": "./kenmerkinonderzoek.parquet",
+      "type": "application/vnd.apache.parquet",
+      "roles": [
+        "data"
+      ],
+      "file:size": 42525,
+      "file:checksum": "12205e419943fc5efd738d33b1f6c6393a0b95c7b68d888beec3b05320c8b6ba782d",
+      "title": "Kenmerk in onderzoek (BAG), Parquet",
+      "description": "Alle versies van de objecten, met de eigenschappen van de API als kolommen. Zonder geometrie, gesorteerd op identificatie en versie."
+    }
+  },
+  "table:columns": [
+    {
+      "name": "id",
+      "type": "int64",
+      "description": "Technische sleutel van het record; geen BAG-gegeven."
+    },
+    {
+      "name": "objecttype",
+      "type": "string",
+      "description": "Het type van het BAG-object dat in onderzoek is geplaatst: 'WPL' (woonplaats), 'OPR' (openbareruimte), 'NUM' (nummeraanduiding), 'PND' (pand), 'VBO' (verblijfsobject), 'STA' (standplaats), 'LIG' (ligplaats)."
+    },
+    {
+      "name": "object",
+      "type": "string",
+      "description": "Het BAG-object waarvan een kenmerk in onderzoek is geplaatst."
+    },
+    {
+      "name": "kenmerk",
+      "type": "string",
+      "description": "De naam van het attribuut of de relatie van het object dat in onderzoek is geplaatst, zoals in de BAG benoemd (met spaties, bijvoorbeeld 'oorspronkelijk bouwjaar' voor oorspronkelijkBouwjaar)."
+    },
+    {
+      "name": "inOnderzoek",
+      "type": "bool",
+      "description": "Geeft aan of het kenmerk in deze periode in onderzoek is (`true`, in de BAG J) of niet (`false`, N)."
+    },
+    {
+      "name": "documentdatum",
+      "type": "date32[day]",
+      "description": "De datum van het document waarin de grondslag van het onderzoek wordt vastgelegd."
+    },
+    {
+      "name": "documentnummer",
+      "type": "string",
+      "description": "Het nummer van het document waarin de grondslag van het onderzoek wordt vastgelegd. Maximaal 40 tekens."
+    },
+    {
+      "name": "beginGeldigheid",
+      "type": "date32[day]",
+      "description": "De datum waarop deze toestand ingaat: bij inOnderzoek = true de datum waarop het kenmerk bij de bronhouder in onderzoek is geplaatst."
+    },
+    {
+      "name": "eindGeldigheid",
+      "type": "date32[day]",
+      "description": "De datum waarop deze toestand eindigt (niet tot en met): bij inOnderzoek = true de datum waarop het onderzoek is afgerond. Leeg als de toestand nog geldt."
+    },
+    {
+      "name": "tijdstipRegistratie",
+      "type": "timestamp[ms]",
+      "description": "Het tijdstip waarop het record is geregistreerd bij de bronhouder."
+    },
+    {
+      "name": "eindRegistratie",
+      "type": "timestamp[ms]",
+      "description": "Het tijdstip waarop de registratie van het record is beëindigd bij de bronhouder."
+    },
+    {
+      "name": "tijdstipRegistratieLV",
+      "type": "timestamp[ms]",
+      "description": "Het tijdstip waarop het record is geregistreerd in de landelijke voorziening."
+    },
+    {
+      "name": "tijdstipEindRegistratieLV",
+      "type": "timestamp[ms]",
+      "description": "Het tijdstip waarop de beëindiging van het record is opgenomen in de landelijke voorziening."
+    }
+  ],
+  "table:row_count": 3321,
+  "stac_extensions": [
+    "https://stac-extensions.github.io/table/v1.2.0/schema.json",
+    "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+    "https://schemas.portolan-sdi.org/portolan/v0.2.0/schema.json"
+  ]
+}

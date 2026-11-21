@@ -1,0 +1,41 @@
+{
+  "type": "Catalog",
+  "id": "postcode6",
+  "stac_version": "1.1.0",
+  "title": "Postcodegebieden 2024 (CBS)",
+  "description": "Statistische gegevens per postcode (PC6) van het Centraal Bureau voor de Statistiek (CBS) op 1 januari 2024: inwoners naar geslacht, leeftijd en herkomst, particuliere huishoudens naar samenstelling en woningen naar bouwjaar, eigendom en bewoning. Elk postcodegebied (bijvoorbeeld 3811LM) is een object; in het bestand van het CBS dekken de gebieden Nederland zonder gaten, ook gebieden zonder inwoners. Bron: CBS Postcode6 2024, eerste versie (maart 2025); geboorten, WOZ-waarde, energieverbruik en de nabijheid van voorzieningen publiceert het CBS pas in een latere versie, ze ontbreken daarom. Het uittreksel bevat 3.609 postcodegebieden in gemeente 0307 en 4 daarbuiten (3851DP in gemeente 0233; 3181EM in gemeente 0599; 3818MZ in gemeente 0327; 2324VE in gemeente 0546), die adressen in de BAG van dit uittreksel hebben.\n\nDe gegevens van de API [https://bag.ldproxy.net/postcode6](https://bag.ldproxy.net/postcode6) als GeoParquet. Voor agents: [AGENTS.md](AGENTS.md).",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./postcode6/collection.json",
+      "type": "application/json",
+      "title": "Postcodegebied (CBS)"
+    },
+    {
+      "rel": "agents",
+      "href": "./AGENTS.md",
+      "type": "text/markdown",
+      "title": "Agent/LLM usage guide"
+    },
+    {
+      "rel": "describedby",
+      "href": "./README.md",
+      "type": "text/markdown",
+      "title": "Human-readable documentation"
+    }
+  ],
+  "stac_extensions": [
+    "https://schemas.portolan-sdi.org/portolan/v0.2.0/schema.json"
+  ],
+  "updated": "2026-11-21T12:23:28Z"
+}

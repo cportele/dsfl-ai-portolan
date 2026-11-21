@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.107338Z",
+      "breaking": false,
+      "assets": {
+        "buurt.parquet": {
+          "sha256": "6e014412b26cc3367f9e9e11a51dba05da90e1ca2464b875e3001780cc9dd80d",
+          "size_bytes": 112021,
+          "href": "wijkenbuurten/buurt/buurt.parquet",
+          "source_path": "buurt.parquet",
+          "source_mtime": 1795164566.385638,
+          "mtime": 1795164566.385638,
+          "feature_count": 145,
+          "schema_fingerprint": "b43d5710255da707"
+        },
+        "thumbnail.png": {
+          "sha256": "a0bcc5698e91f69a309dc77e7b9ae515ec5e0168cc8b812aa2c4e3217474afa8",
+          "size_bytes": 56952,
+          "href": "wijkenbuurten/buurt/thumbnail.png",
+          "mtime": 1795263050.1096332
+        }
+      },
+      "changes": [
+        "buurt.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

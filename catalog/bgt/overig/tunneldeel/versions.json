@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.104692Z",
+      "breaking": false,
+      "assets": {
+        "thumbnail.png": {
+          "sha256": "782ecb4866f2d5d7a7e4d0dc3a3578995acddbe19fcddf79e65b49a1f41d43d0",
+          "size_bytes": 21557,
+          "href": "bgt/overig/tunneldeel/thumbnail.png",
+          "mtime": 1795263049.2913063
+        },
+        "tunneldeel.parquet": {
+          "sha256": "05307b9abfc7dab86eb1be33f0f2c65a2061da16d87e18171c82701ce69c7cb4",
+          "size_bytes": 24747,
+          "href": "bgt/overig/tunneldeel/tunneldeel.parquet",
+          "source_path": "tunneldeel.parquet",
+          "source_mtime": 1795164556.7338617,
+          "mtime": 1795164556.7338617,
+          "feature_count": 38,
+          "schema_fingerprint": "67edbc6b4ec27294"
+        }
+      },
+      "changes": [
+        "thumbnail.png",
+        "tunneldeel.parquet"
+      ]
+    }
+  ]
+}

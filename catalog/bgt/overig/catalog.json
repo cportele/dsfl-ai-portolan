@@ -1,0 +1,77 @@
+{
+  "type": "Catalog",
+  "id": "bgt/overig",
+  "stac_version": "1.1.0",
+  "title": "Overige objecten",
+  "description": "Spoor ('trein') en de objecten die niet bij de topografie of de inrichtingselementen horen: functionele gebieden ('bushalte'), gebouwinstallaties ('luifel', 'toegangstrap'), tunneldelen, overige scheidingen ('walbescherming', 'hek', 'damwand'), ongeclassificeerde objecten en openbareruimtelabels (de straatnamen op de kaart). Tussen haakjes de soorten in deze gegevens. Functionele gebieden overlappen de vlakken van de topografie. Voor agents: [AGENTS.md](AGENTS.md).",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./functioneelgebied/collection.json",
+      "type": "application/json",
+      "title": "FunctioneelGebied (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./gebouwinstallatie/collection.json",
+      "type": "application/json",
+      "title": "GebouwInstallatie (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./ongeclassificeerdobject/collection.json",
+      "type": "application/json",
+      "title": "OngeclassificeerdObject (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./openbareruimtelabel/collection.json",
+      "type": "application/json",
+      "title": "OpenbareRuimteLabel (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./overigescheiding/collection.json",
+      "type": "application/json",
+      "title": "OverigeScheiding (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./spoor/collection.json",
+      "type": "application/json",
+      "title": "Spoor (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./tunneldeel/collection.json",
+      "type": "application/json",
+      "title": "Tunneldeel (BGT)"
+    },
+    {
+      "rel": "agents",
+      "href": "./AGENTS.md",
+      "type": "text/markdown",
+      "title": "Agent/LLM usage guide"
+    },
+    {
+      "rel": "describedby",
+      "href": "./README.md",
+      "type": "text/markdown",
+      "title": "Human-readable documentation"
+    }
+  ],
+  "stac_extensions": [
+    "https://schemas.portolan-sdi.org/portolan/v0.2.0/schema.json"
+  ],
+  "updated": "2026-11-21T12:23:28Z"
+}

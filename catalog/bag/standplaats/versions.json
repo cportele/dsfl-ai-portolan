@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.100350Z",
+      "breaking": false,
+      "assets": {
+        "standplaats.parquet": {
+          "sha256": "ff2f486c4429186179fa1decc36cb55836cc6a1a2c216e778d842de6e14ac848",
+          "size_bytes": 25807,
+          "href": "bag/standplaats/standplaats.parquet",
+          "source_path": "standplaats.parquet",
+          "source_mtime": 1795164518.7603426,
+          "mtime": 1795164518.7603426,
+          "feature_count": 213,
+          "schema_fingerprint": "643551609e7e1d25"
+        },
+        "thumbnail.png": {
+          "sha256": "0a9c7ae4ad73368c2b9830a61ac555cd549a9447b9d551543c6593d386d93624",
+          "size_bytes": 17913,
+          "href": "bag/standplaats/thumbnail.png",
+          "mtime": 1795263041.9967904
+        }
+      },
+      "changes": [
+        "standplaats.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

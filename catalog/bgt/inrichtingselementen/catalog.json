@@ -1,0 +1,107 @@
+{
+  "type": "Catalog",
+  "id": "bgt/inrichtingselementen",
+  "stac_version": "1.1.0",
+  "title": "Inrichtingselementen",
+  "description": "Bakken ('afval apart plaats', 'container', 'afvalbak', 'zand- / zoutbak'), borden ('verkeersbord', 'wegwijzer', 'verklikker transportleiding', 'informatiebord' enzovoort), installaties ('pomp', 'zonnepaneel'), kasten ('CAI-kast', 'verkeersregelinstallatiekast', 'elektrakast', 'telkast' enzovoort), masten ('zendmast', 'straalzender'), palen ('lichtmast', 'verkeersbordpaal', 'hectometerpaal', 'verkeersregelinstallatiepaal' enzovoort), putten ('kolk', 'inspectie- / rioolput', 'waterleidingput', 'brandkraan / -put' enzovoort), sensoren ('camera', 'detectielus'), straatmeubilair ('fietsenrek', 'lichtpunt', 'abri', 'bolder' enzovoort), waterinrichtingselementen ('meerpaal', 'hoogtemerk'), weginrichtingselementen ('geleideconstructie', 'lijnafwatering', 'rooster', 'balustrade' enzovoort) en vegetatieobjecten ('haag', 'boom'). De soort staat in plusType; tussen haakjes de meest voorkomende soorten in deze gegevens. Dit is optionele IMGeo-informatie: alleen aanwezig waar de bronhouder het bijhoudt. Voor agents: [AGENTS.md](AGENTS.md).",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./bak/collection.json",
+      "type": "application/json",
+      "title": "Bak (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./bord/collection.json",
+      "type": "application/json",
+      "title": "Bord (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./installatie/collection.json",
+      "type": "application/json",
+      "title": "Installatie (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./kast/collection.json",
+      "type": "application/json",
+      "title": "Kast (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./mast/collection.json",
+      "type": "application/json",
+      "title": "Mast (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./paal/collection.json",
+      "type": "application/json",
+      "title": "Paal (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./put/collection.json",
+      "type": "application/json",
+      "title": "Put (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./sensor/collection.json",
+      "type": "application/json",
+      "title": "Sensor (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./straatmeubilair/collection.json",
+      "type": "application/json",
+      "title": "Straatmeubilair (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./vegetatieobject/collection.json",
+      "type": "application/json",
+      "title": "VegetatieObject (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./waterinrichtingselement/collection.json",
+      "type": "application/json",
+      "title": "Waterinrichtingselement (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./weginrichtingselement/collection.json",
+      "type": "application/json",
+      "title": "Weginrichtingselement (BGT)"
+    },
+    {
+      "rel": "agents",
+      "href": "./AGENTS.md",
+      "type": "text/markdown",
+      "title": "Agent/LLM usage guide"
+    },
+    {
+      "rel": "describedby",
+      "href": "./README.md",
+      "type": "text/markdown",
+      "title": "Human-readable documentation"
+    }
+  ],
+  "stac_extensions": [
+    "https://schemas.portolan-sdi.org/portolan/v0.2.0/schema.json"
+  ],
+  "updated": "2026-11-21T12:23:28Z"
+}

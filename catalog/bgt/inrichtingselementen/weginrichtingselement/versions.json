@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.103278Z",
+      "breaking": false,
+      "assets": {
+        "thumbnail.png": {
+          "sha256": "ae3402c447a658c6a325d3e15fea34113a1a7ce2876f11077b880bbaebadfcc3",
+          "size_bytes": 35101,
+          "href": "bgt/inrichtingselementen/weginrichtingselement/thumbnail.png",
+          "mtime": 1795263049.8823807
+        },
+        "weginrichtingselement.parquet": {
+          "sha256": "a6de3520af738ff119a6819fe5dfbfcd5e98096ce855e5967fa9b7dbf5403d9d",
+          "size_bytes": 485237,
+          "href": "bgt/inrichtingselementen/weginrichtingselement/weginrichtingselement.parquet",
+          "source_path": "weginrichtingselement.parquet",
+          "source_mtime": 1795164563.9871397,
+          "mtime": 1795164563.9871397,
+          "feature_count": 1904,
+          "schema_fingerprint": "ee431e6c647c34fa"
+        }
+      },
+      "changes": [
+        "thumbnail.png",
+        "weginrichtingselement.parquet"
+      ]
+    }
+  ]
+}

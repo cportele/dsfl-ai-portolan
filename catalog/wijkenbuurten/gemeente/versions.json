@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.107528Z",
+      "breaking": false,
+      "assets": {
+        "gemeente.parquet": {
+          "sha256": "5d1c223ba1ada0de73e91838a3c63fb2b45d0328c74630c1d7201eef95cf5415",
+          "size_bytes": 39916,
+          "href": "wijkenbuurten/gemeente/gemeente.parquet",
+          "source_path": "gemeente.parquet",
+          "source_mtime": 1795164565.4401436,
+          "mtime": 1795164565.4401436,
+          "feature_count": 1,
+          "schema_fingerprint": "6779aecb934facdb"
+        },
+        "thumbnail.png": {
+          "sha256": "6639162edccd1b806df07cb0763d3bd65536559a6f356a160277369e9c36fd1f",
+          "size_bytes": 15739,
+          "href": "wijkenbuurten/gemeente/thumbnail.png",
+          "mtime": 1795263050.0366795
+        }
+      },
+      "changes": [
+        "gemeente.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

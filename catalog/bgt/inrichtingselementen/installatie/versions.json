@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.101376Z",
+      "breaking": false,
+      "assets": {
+        "installatie.parquet": {
+          "sha256": "4c2b4c9d1b398c4042a991b31e45845b51e65bf89d12f43309432bb27c7c7615",
+          "size_bytes": 11226,
+          "href": "bgt/inrichtingselementen/installatie/installatie.parquet",
+          "source_path": "installatie.parquet",
+          "source_mtime": 1795164560.2490187,
+          "mtime": 1795164560.2490187,
+          "feature_count": 23,
+          "schema_fingerprint": "bfeafd7eb7e0ff4b"
+        },
+        "thumbnail.png": {
+          "sha256": "7abb99f5b157901cb73cd5962ce96aeee886393bc74cc75087ff67670a4f80d5",
+          "size_bytes": 18719,
+          "href": "bgt/inrichtingselementen/installatie/thumbnail.png",
+          "mtime": 1795263049.6023307
+        }
+      },
+      "changes": [
+        "installatie.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

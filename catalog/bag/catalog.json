@@ -1,0 +1,83 @@
+{
+  "type": "Catalog",
+  "id": "bag",
+  "stac_version": "1.1.0",
+  "title": "Basisregistratie Adressen en Gebouwen (BAG)",
+  "description": "De Basisregistratie Adressen en Gebouwen (BAG) bevat gemeentelijke basisgegevens van alle adressen en gebouwen in Nederland, inclusief de historie. Bron: BAG 2.0 Extract van het Kadaster, stand 8 oktober 2026. Het uittreksel bevat de BAG van de gemeente Amersfoort, met de woonplaatsen Amersfoort, Hoogland, Hooglanderveen en Stoutenburg Noord.\n\nDe gegevens van de API [https://bag.ldproxy.net/bag](https://bag.ldproxy.net/bag) als GeoParquet. Voor agents: [AGENTS.md](AGENTS.md).",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./ligplaats/collection.json",
+      "type": "application/json",
+      "title": "Ligplaats (BAG)"
+    },
+    {
+      "rel": "child",
+      "href": "./pand/collection.json",
+      "type": "application/json",
+      "title": "Pand (BAG)"
+    },
+    {
+      "rel": "child",
+      "href": "./standplaats/collection.json",
+      "type": "application/json",
+      "title": "Standplaats (BAG)"
+    },
+    {
+      "rel": "child",
+      "href": "./verblijfsobject/collection.json",
+      "type": "application/json",
+      "title": "Verblijfsobject (BAG)"
+    },
+    {
+      "rel": "child",
+      "href": "./woonplaats/collection.json",
+      "type": "application/json",
+      "title": "Woonplaats (BAG)"
+    },
+    {
+      "rel": "child",
+      "href": "./kenmerkinonderzoek/collection.json",
+      "type": "application/json",
+      "title": "Kenmerk in onderzoek (BAG)"
+    },
+    {
+      "rel": "child",
+      "href": "./nummeraanduiding/collection.json",
+      "type": "application/json",
+      "title": "Nummeraanduiding (BAG)"
+    },
+    {
+      "rel": "child",
+      "href": "./openbareruimte/collection.json",
+      "type": "application/json",
+      "title": "Openbare ruimte (BAG)"
+    },
+    {
+      "rel": "agents",
+      "href": "./AGENTS.md",
+      "type": "text/markdown",
+      "title": "Agent/LLM usage guide"
+    },
+    {
+      "rel": "describedby",
+      "href": "./README.md",
+      "type": "text/markdown",
+      "title": "Human-readable documentation"
+    }
+  ],
+  "stac_extensions": [
+    "https://schemas.portolan-sdi.org/portolan/v0.2.0/schema.json"
+  ],
+  "updated": "2026-11-21T12:23:28Z"
+}

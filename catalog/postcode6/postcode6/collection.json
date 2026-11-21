@@ -1,0 +1,321 @@
+{
+  "type": "Collection",
+  "id": "postcode6/postcode6",
+  "stac_version": "1.1.0",
+  "description": "Het gebied van een zescijferige postcode (PC6) met statistische gegevens van het CBS over de inwoners, de huishoudens en de woningen op 1 januari 2024. Dezelfde eigenschappen als de collectie [postcode6](https://bag.ldproxy.net/postcode6/collections/postcode6) van de API. Voor agents: [AGENTS.md](AGENTS.md).",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "license",
+      "href": "https://creativecommons.org/licenses/by/4.0/deed.nl",
+      "title": "License"
+    },
+    {
+      "rel": "via",
+      "href": "https://www.pdok.nl/introductie/-/article/cbspostcode6",
+      "type": "text/html",
+      "title": "Original source"
+    },
+    {
+      "rel": "agents",
+      "href": "./AGENTS.md",
+      "type": "text/markdown",
+      "title": "Agent/LLM usage guide"
+    },
+    {
+      "rel": "describedby",
+      "href": "./README.md",
+      "type": "text/markdown",
+      "title": "Human-readable documentation"
+    }
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/table/v1.2.0/schema.json",
+    "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+    "https://schemas.portolan-sdi.org/portolan/v0.2.0/schema.json"
+  ],
+  "updated": "2026-11-21T12:23:28Z",
+  "geoparquet:geometry_type": [
+    "MultiPolygon"
+  ],
+  "geoparquet:feature_count": 3613,
+  "table:row_count": 3613,
+  "table:primary_geometry": "geometrie",
+  "table:columns": [
+    {
+      "name": "postcode",
+      "type": "string",
+      "description": "De postcode, vier cijfers en twee hoofdletters zonder spatie (bijvoorbeeld 3811LM). De postcode is de id van het object (feature id)."
+    },
+    {
+      "name": "aantal_inwoners",
+      "type": "int32",
+      "description": "Het aantal inwoners."
+    },
+    {
+      "name": "aantal_mannen",
+      "type": "int32",
+      "description": "Het aantal mannen."
+    },
+    {
+      "name": "aantal_vrouwen",
+      "type": "int32",
+      "description": "Het aantal vrouwen."
+    },
+    {
+      "name": "aantal_inwoners_0_tot_15_jaar",
+      "type": "int32",
+      "description": "Het aantal inwoners jonger dan 15 jaar."
+    },
+    {
+      "name": "aantal_inwoners_15_tot_25_jaar",
+      "type": "int32",
+      "description": "Het aantal inwoners van 15 tot 25 jaar."
+    },
+    {
+      "name": "aantal_inwoners_25_tot_45_jaar",
+      "type": "int32",
+      "description": "Het aantal inwoners van 25 tot 45 jaar."
+    },
+    {
+      "name": "aantal_inwoners_45_tot_65_jaar",
+      "type": "int32",
+      "description": "Het aantal inwoners van 45 tot 65 jaar."
+    },
+    {
+      "name": "aantal_inwoners_65_jaar_en_ouder",
+      "type": "int32",
+      "description": "Het aantal inwoners van 65 jaar en ouder."
+    },
+    {
+      "name": "percentage_geb_nederland_herkomst_nederland",
+      "type": "int32",
+      "description": "Het percentage inwoners dat in Nederland is geboren en van wie beide ouders in Nederland zijn geboren."
+    },
+    {
+      "name": "percentage_geb_nederland_herkomst_overig_europa",
+      "type": "int32",
+      "description": "Het percentage inwoners dat in Nederland is geboren, met een herkomst in Europa buiten Nederland."
+    },
+    {
+      "name": "percentage_geb_nederland_herkomst_buiten_europa",
+      "type": "int32",
+      "description": "Het percentage inwoners dat in Nederland is geboren, met een herkomst buiten Europa."
+    },
+    {
+      "name": "percentage_geb_buiten_nederland_herkomst_europa",
+      "type": "int32",
+      "description": "Het percentage inwoners dat in Europa buiten Nederland is geboren."
+    },
+    {
+      "name": "percentage_geb_buiten_nederland_herkmst_buiten_europa",
+      "type": "int32",
+      "description": "Het percentage inwoners dat buiten Europa is geboren."
+    },
+    {
+      "name": "aantal_part_huishoudens",
+      "type": "int32",
+      "description": "Het aantal particuliere huishoudens, zonder institutionele huishoudens (bijvoorbeeld in verzorgingshuizen)."
+    },
+    {
+      "name": "aantal_eenpersoonshuishoudens",
+      "type": "int32",
+      "description": "Het aantal particuliere huishoudens van één persoon."
+    },
+    {
+      "name": "aantal_meerpersoonshuishoudens_zonder_kind",
+      "type": "int32",
+      "description": "Het aantal particuliere huishoudens van meer personen zonder thuiswonende kinderen (paren en overige huishoudens)."
+    },
+    {
+      "name": "aantal_eenouderhuishoudens",
+      "type": "int32",
+      "description": "Het aantal particuliere huishoudens van één ouder met thuiswonende kinderen."
+    },
+    {
+      "name": "aantal_tweeouderhuishoudens",
+      "type": "int32",
+      "description": "Het aantal particuliere huishoudens van twee ouders met ten minste één thuiswonend kind."
+    },
+    {
+      "name": "gemiddelde_huishoudensgrootte",
+      "type": "decimal128(3, 1)",
+      "description": "Het aantal inwoners in particuliere huishoudens gedeeld door het aantal particuliere huishoudens, op één decimaal afgerond."
+    },
+    {
+      "name": "aantal_woningen",
+      "type": "int32",
+      "description": "Het aantal woningen volgens de BAG, verblijfsobjecten met ten minste een woonfunctie."
+    },
+    {
+      "name": "aantal_woningen_bouwjaar_voor_1945",
+      "type": "int32",
+      "description": "Het aantal woningen met een oorspronkelijk bouwjaar voor 1945."
+    },
+    {
+      "name": "aantal_woningen_bouwjaar_45_tot_65",
+      "type": "int32",
+      "description": "Het aantal woningen met een oorspronkelijk bouwjaar van 1945 tot 1965."
+    },
+    {
+      "name": "aantal_woningen_bouwjaar_65_tot_75",
+      "type": "int32",
+      "description": "Het aantal woningen met een oorspronkelijk bouwjaar van 1965 tot 1975."
+    },
+    {
+      "name": "aantal_woningen_bouwjaar_75_tot_85",
+      "type": "int32",
+      "description": "Het aantal woningen met een oorspronkelijk bouwjaar van 1975 tot 1985."
+    },
+    {
+      "name": "aantal_woningen_bouwjaar_85_tot_95",
+      "type": "int32",
+      "description": "Het aantal woningen met een oorspronkelijk bouwjaar van 1985 tot 1995."
+    },
+    {
+      "name": "aantal_woningen_bouwjaar_95_tot_05",
+      "type": "int32",
+      "description": "Het aantal woningen met een oorspronkelijk bouwjaar van 1995 tot 2005."
+    },
+    {
+      "name": "aantal_woningen_bouwjaar_05_tot_15",
+      "type": "int32",
+      "description": "Het aantal woningen met een oorspronkelijk bouwjaar van 2005 tot 2015."
+    },
+    {
+      "name": "aantal_woningen_bouwjaar_15_en_later",
+      "type": "int32",
+      "description": "Het aantal woningen met een oorspronkelijk bouwjaar van 2015 of later."
+    },
+    {
+      "name": "aantal_meergezins_woningen",
+      "type": "int32",
+      "description": "Het aantal woningen in een pand met andere woningen of bedrijfsruimten, zoals flats, appartementen en bovenwoningen."
+    },
+    {
+      "name": "percentage_koopwoningen",
+      "type": "int32",
+      "description": "Het percentage woningen dat door de (toekomstige) eigenaar wordt bewoond of een tweede woning is."
+    },
+    {
+      "name": "percentage_huurwoningen",
+      "type": "int32",
+      "description": "Het percentage woningen dat niet door de eigenaar wordt bewoond; een woning zonder ingeschreven bewoners geldt als huurwoning."
+    },
+    {
+      "name": "aantal_huurwoningen_in_bezit_woningcorporaties",
+      "type": "int32",
+      "description": "Het aantal huurwoningen in bezit van woningcorporaties (toegelaten instellingen volkshuisvesting); niet hetzelfde als sociale huurwoningen."
+    },
+    {
+      "name": "aantal_niet_bewoonde_woningen",
+      "type": "int32",
+      "description": "Het aantal woningen waar niemand in de Basisregistratie Personen (BRP) staat ingeschreven."
+    },
+    {
+      "name": "aantal_personen_met_uitkering_onder_aowlft",
+      "type": "int32",
+      "description": "Het aantal inwoners jonger dan de AOW-leeftijd met een werkloosheids-, bijstands- of arbeidsongeschiktheidsuitkering of een daaraan verwante uitkering; wie meerdere uitkeringen heeft telt één keer."
+    },
+    {
+      "name": "gemeentecode",
+      "type": "string",
+      "description": "De gemeente waarin het postcodegebied ligt. Geen CBS-gegeven over de postcode, afgeleid uit een punt binnen het gebied. Verwijst naar code in de collectie wijkenbuurten/gemeente."
+    },
+    {
+      "name": "wijkcode",
+      "type": "string",
+      "description": "De wijk waarin het postcodegebied ligt. Geen CBS-gegeven over de postcode, afgeleid uit een punt binnen het gebied. Verwijst naar code in de collectie wijkenbuurten/wijk."
+    },
+    {
+      "name": "buurtcode",
+      "type": "string",
+      "description": "De buurt waarin het postcodegebied ligt. Geen CBS-gegeven over de postcode, afgeleid uit een punt binnen het gebied. Verwijst naar code in de collectie wijkenbuurten/buurt."
+    },
+    {
+      "name": "geometrie",
+      "type": "binary",
+      "description": "De begrenzing van het postcodegebied. De postcodegebieden dekken Nederland zonder gaten, ook land zonder adressen."
+    },
+    {
+      "name": "geometrie_bbox",
+      "type": "struct<xmin: float, ymin: float, xmax: float, ymax: float>",
+      "description": "Bounding box van geometrie (GeoParquet covering), om bij een ruimtelijke selectie rijgroepen over te slaan."
+    }
+  ],
+  "title": "Postcodegebied (CBS)",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          4.245784013761224,
+          51.90019436992668,
+          5.62195318764413,
+          52.294840957316545
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2024-01-01T00:00:00Z",
+          null
+        ]
+      ]
+    }
+  },
+  "license": "CC-BY-4.0",
+  "providers": [
+    {
+      "name": "Centraal Bureau voor de Statistiek (CBS)",
+      "roles": [
+        "producer",
+        "licensor"
+      ],
+      "url": "https://www.cbs.nl/"
+    },
+    {
+      "name": "interactive instruments GmbH",
+      "roles": [
+        "processor",
+        "host"
+      ],
+      "url": "https://www.interactive-instruments.de"
+    }
+  ],
+  "assets": {
+    "postcode6": {
+      "href": "./postcode6.parquet",
+      "type": "application/vnd.apache.parquet",
+      "file:size": 635511,
+      "file:checksum": "1220deb554fc063a43816a062cf3f2e4caaa0d1a040a85336626d7ce884e2632e03d",
+      "proj:code": "EPSG:28992",
+      "roles": [
+        "data"
+      ],
+      "title": "Postcodegebied (CBS), GeoParquet",
+      "description": "Alle versies van de objecten, met de eigenschappen van de API als kolommen. GeoParquet 2.0, EPSG:28992, rijen gesorteerd langs een Hilbert-curve."
+    },
+    "thumbnail": {
+      "href": "./thumbnail.png",
+      "type": "image/png",
+      "file:size": 171829,
+      "file:checksum": "1220756a99c991b2086ef4305cf664f8f596f1cd3de1aa88bec2c45da00ea77af581",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "Voorbeeld: Postcodegebied (CBS)",
+      "description": "Kaartje van de actuele versies (of van alle versies als er geen actuele zijn), gekleurd naar de classificatie; gemaakt met scripts/thumbnails.py."
+    }
+  }
+}

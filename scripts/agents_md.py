@@ -1,8 +1,11 @@
 """AGENTS.md texts of the Portolan catalog (used by build_catalog.py), in Dutch.
 
-Every SQL recipe goes through Build.recipe, which runs it with DuckDB (spatial loaded) against
-the files, with the directory of the AGENTS.md as working directory; a failing recipe stops the
-build.
+The recipes read the published files (HTTPS URLs of the bucket, s3:// for globs), so they can be
+copied and run as they are. Every SQL recipe goes through Build.recipe, which runs it with DuckDB
+against the local files of the build (the bucket prefix replaced by the catalog directory); a
+failing recipe or one without rows stops the build. Claims about the data carry a claim check
+(Build.claim): an HTML comment with a query that returns the rows contradicting the claim; it must
+return none. tests/check_docs.py runs both against the published catalog.
 """
 
 import os
@@ -13,6 +16,8 @@ from layout import GROUPS, rel_dir
 API_BASE = "https://bag.ldproxy.net"
 BUCKET = "dsfl-ai-417829795942-eu-central-1-an"
 BUCKET_URL = f"https://{BUCKET}.s3.eu-central-1.amazonaws.com"
+S3_URL = f"s3://{BUCKET}"
+REPO_URL = "https://github.com/cportele/dsfl-ai-portolan"
 SKILL_URL = "https://github.com/cportele/dsfl-ai/tree/master/skills/dsfl-ai-gebouwde-omgeving"
 # The value definitions per BGT collection are maintained with the skill (relative to the repo).
 BGT_VALUES = "skills/dsfl-ai-gebouwde-omgeving/references/bgt-waarden/waarden-{typ}.md"
@@ -49,25 +54,27 @@ PITFALLS_ROOT = """\
   punt op zijn geometrie ligt; de oppervlakte binnen een buurt is de doorsnede met de grens uit
   `wijkenbuurten` (zie de [AGENTS.md van de BGT](bgt/AGENTS.md)).
 - **Geregistreerd is niet aanwezig**: IMGeo-plus en de inrichtingselementen van de BGT zijn
-  optioneel en vaak alleen door de provincie of het waterschap bijgehouden; een ontbrekende waarde
-  van het CBS per postcode is 0 tot 4 of geheim, geen nul.
+  optioneel en worden per bronhouder (gemeente, provincie, waterschap, Rijk) verschillend
+  bijgehouden; een ontbrekende waarde van het CBS per postcode is 0 tot 4 of geheim, geen nul.
 """
 
 COMMON = f"""\
 ## De bestanden lezen
 
-- De paden in de voorbeelden zijn relatief ten opzichte van dit bestand. De catalogus staat
-  openbaar in de S3-bucket `{BUCKET}` (eu-central-1):
+- De voorbeelden lezen de bestanden rechtstreeks uit de openbare S3-bucket `{BUCKET}`
+  (eu-central-1), zonder inloggegevens; met een lokale kopie vervang je het begin van de URL door
+  het pad van de kopie.
   - via HTTPS: `{BUCKET_URL}/<pad>`, bijvoorbeeld
-    `{BUCKET_URL}/bag/pand/pand.parquet`; DuckDB (`LOAD httpfs`) leest dan met
+    `{BUCKET_URL}/bag/pand/pand.parquet`; DuckDB (httpfs) leest dan met
     range-requests alleen de rijgroepen en kolommen die nodig zijn;
-  - via S3: `s3://{BUCKET}/<pad>`, zonder inloggegevens. Wildcards in paden
-    (`read_parquet('s3://{BUCKET}/bgt/topografie/*/*.parquet')`) werken alleen zo, niet via HTTPS;
+  - via S3: `{S3_URL}/<pad>`. Wildcards in paden
+    (`read_parquet('{S3_URL}/bgt/topografie/*/*.parquet')`) werken alleen zo, niet via HTTPS;
     in DuckDB eerst `CREATE SECRET (TYPE s3, REGION 'eu-central-1');`.
 - GeoParquet 2.0: geometrieën als WKB met het Parquet-type GEOMETRY, in het Rijksdriehoeksstelsel
   (EPSG:28992, Amersfoort / RD New, in meter, x = oost, y = noord). Met de spatial-extensie van
-  DuckDB heeft een geometriekolom het type GEOMETRY. Voor lengte- en breedtegraad:
-  `ST_Transform(geometrie, 'EPSG:28992', 'OGC:CRS84')`.
+  DuckDB (`INSTALL spatial; LOAD spatial;`) heeft een geometriekolom het type GEOMETRY. Voor
+  lengte- en breedtegraad eerst `SET geometry_always_xy = true;` (vanaf DuckDB 2.0 verplicht, anders
+  weigert `ST_Transform`), dan `ST_Transform(geometrie, 'EPSG:28992', 'OGC:CRS84')`.
 - Elke rijgroep heeft ruimtelijke statistieken per geometriekolom, en elke geometriekolom heeft
   daarnaast een kolom `<naam>_bbox` (struct xmin, ymin, xmax, ymax). Filter eerst op de bounding
   box en pas daarna met een exact ruimtelijk predicaat, zodat lezers rijgroepen kunnen overslaan.
@@ -91,11 +98,15 @@ Elke rij is een voorkomen (versie) van een object, met als sleutel `identificati
 `voorkomenidentificatie`. De versies van een object sluiten naadloos op elkaar aan, van
 `beginGeldigheid` (inclusief) tot `eindGeldigheid` (exclusief, leeg bij de laatste versie). Versies
 die op dezelfde dag weer zijn vervangen en inactieve of niet-BAG-voorkomens zijn niet opgenomen,
-net als in de API. De versie die vandaag geldig is, zoals de API die zonder `datetime` levert:
+net als in de API. De versie die vandaag geldig is, zoals de API die zonder `datetime` levert,
+hier geteld per status:
 
 ```sql
+SELECT status, count(*) AS panden
+FROM '{pand}'
 WHERE beginGeldigheid <= current_date
   AND (eindGeldigheid IS NULL OR eindGeldigheid > current_date)
+GROUP BY ALL ORDER BY panden DESC
 ```
 
 Vervang `current_date` door een datum voor de versie die op die datum geldig was. Objecten die
@@ -109,14 +120,18 @@ objecten te krijgen.
 Elke rij is een versie van een object, met als sleutel `identificatie` + `tijdstipRegistratie`. De
 versies van een object sluiten naadloos op elkaar aan, van `tijdstipRegistratie` (inclusief) tot
 `eindRegistratie` (exclusief). De versies die nu in de registratie staan, zoals de API die zonder
-`datetime` levert (alleen bestaande objecten):
+`datetime` levert (alleen bestaande objecten), hier geteld per bronhouder:
 
 ```sql
+SELECT bronhouder, count(*) AS wegdelen
+FROM '{wegdeel}'
 WHERE eindRegistratie IS NULL
+GROUP BY ALL ORDER BY wegdelen DESC
 ```
 
 Op een tijdstip `T`: `tijdstipRegistratie <= T AND (eindRegistratie IS NULL OR eindRegistratie > T)`.
-Een beëindigd object houdt zijn laatste versie, met `eindRegistratie` gelijk aan `objectEindTijd`.
+Een beëindigd object houdt zijn laatste versie, met `eindRegistratie` op de dag van
+`objectEindTijd` (een datum; `eindRegistratie` is een tijdstip, vergelijk dus `eindRegistratie::date`).
 """,
 }
 
@@ -168,7 +183,7 @@ PITFALLS = {
   `tijdstipRegistratie` filtert, mist de beëindigde objecten.
 - **Maaiveld**: alleen de vlakken met `relatieveHoogteligging = 0` bedekken het gebied zonder gaten
   en overlap; bruggen en overkappingen (1 en hoger), tunnels (-1 en lager) en functionele gebieden
-  (parken, speeltuinen) liggen erboven, eronder of overlappen ze.
+  liggen erboven, eronder of overlappen ze.
 - **Oppervlakte in een gebied**: een object hoort bij de buurt (`buurtcode`) waarin een punt op zijn
   geometrie ligt, ook als het over de grens loopt. Voor water en grote wegen kan dat tientallen
   procenten schelen; knip daarom met de grens uit `wijkenbuurten` (voorbeeld hieronder). Het totaal
@@ -176,7 +191,7 @@ PITFALLS = {
 - **Groen en erf**: `begroeidterreindeel` is het groen; `onbegroeidterreindeel` met
   `bgtFysiekVoorkomen = 'erf'` is de grond bij een pand (tuinen, binnenplaatsen, opritten). Een
   aandeel groen bevat dus geen tuinen; noem het aandeel erf erbij.
-- **IMGeo-plus en inrichtingselementen** (bomen, banken, lichtmasten, putten, speeltoestellen) zijn
+- **IMGeo-plus en inrichtingselementen** (bomen, hagen, lichtmasten, putten, banken) zijn
   optioneel en alleen gevuld waar de bronhouder ze bijhoudt. Groepeer eerst op `bronhouder` (G...
   gemeente, P... provincie, W... waterschap, L... Rijk) en zeg "in de BGT geregistreerd" en door wie.
   `plusFysiekVoorkomen = 'waardeOnbekend'` kan een groot deel van de wegoppervlakte zijn;
@@ -211,11 +226,64 @@ CURRENT = {
 def cur(api, alias=None):
     c = CURRENT.get(api)
     if not c:
-        return "true"
+        return None
     if alias:
         for col in ("beginGeldigheid", "eindGeldigheid", "eindRegistratie"):
             c = c.replace(col, f"{alias}.{col}")
     return c
+
+
+def where(*conditions, keyword="WHERE"):
+    """A WHERE (or AND) clause of the conditions that are not None, or an empty string."""
+    c = [x for x in conditions if x]
+    return f"{keyword} {' AND '.join(c)}" if c else ""
+
+
+def versions_claims(b, api):
+    """Claim checks for the version rules of a registry (hidden HTML comments)."""
+    if api == "bag":
+        return "".join(
+            [
+                b.claim(
+                    "identificatie + voorkomenidentificatie is uniek",
+                    f"""
+                    SELECT identificatie, voorkomenidentificatie, count(*)
+                    FROM '{url('bag', t)}' GROUP BY ALL HAVING count(*) > 1
+                    """,
+                )
+                for t in ("pand", "verblijfsobject", "nummeraanduiding", "openbareruimte")
+            ]
+            + [
+                b.claim(
+                    "de versies sluiten naadloos op elkaar aan en vandaag is hoogstens één versie geldig",
+                    f"""
+                    SELECT identificatie FROM '{url('bag', t)}'
+                    WHERE volgendeVersie IS NOT NULL AND eindGeldigheid IS DISTINCT FROM volgendeVersie
+                    UNION ALL
+                    SELECT identificatie FROM '{url('bag', t)}' WHERE {cur('bag')}
+                    GROUP BY identificatie HAVING count(*) > 1
+                    """,
+                )
+                for t in ("pand", "verblijfsobject")
+            ]
+        )
+    if api == "bgt":
+        return b.claim(
+            "identificatie + tijdstipRegistratie is uniek, hoogstens één versie zonder eindRegistratie, "
+            "eindRegistratie van de laatste versie op de dag van objectEindTijd",
+            f"""
+            {S3_SECRET}
+            WITH v AS (FROM read_parquet('{group_url('bgt', None)}/*/*/*.parquet', union_by_name => true))
+            SELECT identificatie FROM v GROUP BY identificatie, tijdstipRegistratie HAVING count(*) > 1
+            UNION ALL
+            SELECT identificatie FROM v WHERE eindRegistratie IS NULL GROUP BY identificatie HAVING count(*) > 1
+            UNION ALL
+            SELECT identificatie FROM v
+            WHERE volgendeVersie IS NULL AND objectEindTijd IS NOT NULL
+              AND eindRegistratie::date IS DISTINCT FROM objectEindTijd
+            """,
+        )
+    return ""
 
 
 def n(x):
@@ -223,9 +291,17 @@ def n(x):
     return f"{x:,}".replace(",", ".")
 
 
-def rel(b, frm, api, typ):
-    """Path of the file of api/typ relative to the directory frm."""
-    return os.path.relpath(b.catalog / rel_dir(api, typ) / f"{typ}.parquet", frm)
+def url(api, typ, s3=False):
+    """Published URL of the file of api/typ."""
+    return f"{S3_URL if s3 else BUCKET_URL}/{rel_dir(api, typ).as_posix()}/{typ}.parquet"
+
+
+def group_url(api, group, s3=True):
+    """Published URL prefix of a subcatalog, for globs (s3:// only)."""
+    return f"{S3_URL if s3 else BUCKET_URL}/{api}/{group}" if group else f"{S3_URL if s3 else BUCKET_URL}/{api}"
+
+
+S3_SECRET = "CREATE SECRET IF NOT EXISTS (TYPE s3, REGION 'eu-central-1');"
 
 
 def geometry_names(b, api, typ):
@@ -236,20 +312,21 @@ def geometry_names(b, api, typ):
 
 
 def collection_table(b, types, frm, with_group=False):
-    head = "| Collectie | Rijen | Geometrie |\n|---|---|---|"
+    """The collections with their geometry columns; the number of rows is `table:row_count` in
+    each collection.json and not repeated here."""
+    head = "| Collectie | Geometrie |\n|---|---|"
     if with_group:
-        head = "| Collectie | Subcatalogus | Rijen | Geometrie |\n|---|---|---|---|"
+        head = "| Collectie | Subcatalogus | Geometrie |\n|---|---|---|"
     lines = [head]
     for t in types:
-        rows = b.db.sql(f"SELECT count(*) FROM '{b.parquet(t)}'").fetchone()[0]
         geoms = ", ".join(g["name"] for g in t["geometries"]) or "geen"
         link = os.path.relpath(b.parquet(t).parent / "AGENTS.md", frm)
         cell = f"[`{t['type']}`]({link}) ({t['label']})"
         if with_group:
             group = rel_dir(t["api"], t["type"]).parent.name
-            lines.append(f"| {cell} | `{group}` | {n(rows)} | {geoms} |")
+            lines.append(f"| {cell} | `{group}` | {geoms} |")
         else:
-            lines.append(f"| {cell} | {n(rows)} | {geoms} |")
+            lines.append(f"| {cell} | {geoms} |")
     return "\n".join(lines) + "\n"
 
 
@@ -261,7 +338,13 @@ def root_md(b):
     }
 
     def p(api, typ):
-        return rel(b, cwd, api, typ)
+        return url(api, typ)
+
+    def lic(api):
+        spdx = b.apis[api]["spdx"]
+        label = {"CC0-1.0": "CC0 1.0", "CC-BY-4.0": "CC BY 4.0"}.get(spdx, spdx)
+        attribution = b.services[api]["metadata"].get("attribution")
+        return f"{label} ({attribution})" if spdx != "CC0-1.0" and attribution else label
 
     parts = [
         f"""\
@@ -275,15 +358,16 @@ beschrijvingen van de kolommen staan in elke `collection.json` (`table:columns`)
 
 | Subcatalogus | API | Collecties | Licentie |
 |---|---|---|---|
-| [`bag/`](bag/AGENTS.md) | {API_BASE}/bag | {counts['bag']} | CC0 1.0 |
-| [`bgt/`](bgt/AGENTS.md) | {API_BASE}/bgt | {counts['bgt']} | CC0 1.0 |
-| [`wijkenbuurten/`](wijkenbuurten/AGENTS.md) | {API_BASE}/wijkenbuurten | {counts['wijkenbuurten']} | CC BY 4.0 (CBS) |
-| [`postcode6/`](postcode6/AGENTS.md) | {API_BASE}/postcode6 | {counts['postcode6']} | CC BY 4.0 (CBS, ESRI Nederland) |
+| [`bag/`](bag/AGENTS.md) | {API_BASE}/bag | {counts['bag']} | {lic('bag')} |
+| [`bgt/`](bgt/AGENTS.md) | {API_BASE}/bgt | {counts['bgt']} | {lic('bgt')} |
+| [`wijkenbuurten/`](wijkenbuurten/AGENTS.md) | {API_BASE}/wijkenbuurten | {counts['wijkenbuurten']} | {lic('wijkenbuurten')} |
+| [`postcode6/`](postcode6/AGENTS.md) | {API_BASE}/postcode6 | {counts['postcode6']} | {lic('postcode6')} |
 
 Elke collectie is één bestand `<objecttype>.parquet` in een eigen map, met een eigen `AGENTS.md`.
 De BGT is verdeeld in drie subcatalogi: `bgt/topografie`, `bgt/inrichtingselementen` en
 `bgt/overig`. De AGENTS.md van de subcatalogi beschrijven de versies en de verwijzingen binnen een
-registratie.
+registratie. De catalogus wordt gebouwd met de scripts in {REPO_URL}; fouten en vragen:
+{REPO_URL}/issues.
 
 {API_AND_MCP}
 {COMMON}
@@ -299,7 +383,7 @@ registratie.
 - `pand.identificatieBAGPND` (BGT) = `pand.identificatie` (BAG),
   `openbareruimtelabel.identificatieBAGOPR` (BGT) = `openbareruimte.identificatie` (BAG).
 
-## Voorbeelden (DuckDB; `INSTALL spatial; LOAD spatial;` voor de geometriefuncties)
+## Voorbeelden (DuckDB)
 """,
         b.recipe(
             "De adressen van de verblijfsobjecten die vandaag geldig zijn in postcode 3811LM, met "
@@ -345,11 +429,12 @@ registratie.
         ),
         b.recipe(
             "Ruimtelijke selectie: de BAG-panden die vandaag geldig zijn in een vierkant van 200 m bij "
-            "de Onze Lieve Vrouwetoren (155000, 463000, de oorsprong van de RD-coördinaten), met het "
-            "zwaartepunt in lengte- en breedtegraad (eerst het filter op de bounding box, dan het "
-            "exacte predicaat):",
+            "de Onze Lieve Vrouwetoren (155000, 463000, het centrale punt van het "
+            "Rijksdriehoeksstelsel), met het zwaartepunt in lengte- en breedtegraad (eerst het filter "
+            "op de bounding box, dan het exacte predicaat):",
             f"""
-            LOAD spatial;
+            INSTALL spatial; LOAD spatial;
+            SET geometry_always_xy = true;
             SELECT identificatie, oorspronkelijkBouwjaar,
                    ST_AsText(ST_Transform(ST_Centroid(geometrie), 'EPSG:28992', 'OGC:CRS84')) AS zwaartepunt
             FROM '{p('bag', 'pand')}'
@@ -368,7 +453,7 @@ def subcatalog_md(b, api):
     cwd = b.catalog / api
 
     def p(typ):
-        return rel(b, cwd, api, typ)
+        return url(api, typ)
 
     svc = b.services[api]
     types = [t for t in b.types if t["api"] == api]
@@ -388,7 +473,11 @@ def subcatalog_md(b, api):
         types = sorted(types, key=lambda t: order.index(t["type"]))
     lines.append(collection_table(b, types, cwd, with_group=api in GROUPS))
     if api in VERSIONS:
-        lines.append(VERSIONS[api])
+        text = VERSIONS[api].replace("{pand}", url("bag", "pand")).replace("{wegdeel}", url("bgt", "wegdeel"))
+        for sql in re.findall(r"```sql\n(.*?)\n```", text, re.S):
+            b.sql_ok(sql, cwd)
+        lines.append(text)
+        lines.append(versions_claims(b, api))
     if api in PITFALLS:
         lines.append(PITFALLS[api])
     lines.append("## Voorbeelden (DuckDB)\n")
@@ -523,14 +612,15 @@ def subcatalog_md(b, api):
                 "die buurtcode. De geknipte oppervlakten tellen op tot de oppervlakte van de buurt; "
                 "bij water en wegen langs de grens wijkt de som op buurtcode sterk af:",
                 f"""
-                LOAD spatial;
+                INSTALL spatial; LOAD spatial;
+                {S3_SECRET}
                 WITH grens AS (
                   SELECT geometrie AS g, geometrie_bbox AS bb
-                  FROM '{rel(b, cwd, 'wijkenbuurten', 'buurt')}' WHERE code = 'BU03070100')
+                  FROM '{url('wijkenbuurten', 'buurt')}' WHERE code = 'BU03070100')
                 SELECT parse_filename(filename, true) AS objecttype,
                        round(sum(ST_Area(ST_Intersection(v.geometrie, grens.g)))) AS m2_in_buurt,
                        round(sum(ST_Area(v.geometrie)) FILTER (WHERE v.buurtcode = 'BU03070100')) AS m2_op_buurtcode
-                FROM read_parquet('topografie/*/*.parquet', union_by_name => true, filename => true) v, grens
+                FROM read_parquet('{group_url('bgt', 'topografie')}/*/*.parquet', union_by_name => true, filename => true) v, grens
                 WHERE {cur('bgt', 'v')} AND v.relatieveHoogteligging = 0
                   AND v.geometrie_bbox.xmax >= grens.bb.xmin AND v.geometrie_bbox.xmin <= grens.bb.xmax
                   AND v.geometrie_bbox.ymax >= grens.bb.ymin AND v.geometrie_bbox.ymin <= grens.bb.ymax
@@ -538,6 +628,25 @@ def subcatalog_md(b, api):
                 GROUP BY ALL ORDER BY m2_in_buurt DESC
                 """,
                 cwd,
+            ),
+            b.claim(
+                "De geknipte oppervlakten op maaiveld tellen op tot de oppervlakte van de buurt "
+                "(minder dan 1 m² verschil):",
+                f"""
+                INSTALL spatial; LOAD spatial;
+                {S3_SECRET}
+                WITH grens AS (
+                  SELECT geometrie AS g, geometrie_bbox AS bb
+                  FROM '{url('wijkenbuurten', 'buurt')}' WHERE code = 'BU03070100'),
+                som AS (
+                  SELECT sum(ST_Area(ST_Intersection(v.geometrie, grens.g))) AS m2
+                  FROM read_parquet('{group_url('bgt', 'topografie')}/*/*.parquet', union_by_name => true) v, grens
+                  WHERE {cur('bgt', 'v')} AND v.relatieveHoogteligging = 0
+                    AND v.geometrie_bbox.xmax >= grens.bb.xmin AND v.geometrie_bbox.xmin <= grens.bb.xmax
+                    AND v.geometrie_bbox.ymax >= grens.bb.ymin AND v.geometrie_bbox.ymin <= grens.bb.ymax
+                    AND ST_Intersects(v.geometrie, grens.g))
+                SELECT som.m2, ST_Area(grens.g) AS buurt FROM som, grens WHERE abs(som.m2 - ST_Area(grens.g)) >= 1
+                """,
             ),
             b.recipe(
                 "Wijzigingen in een periode: hoeveel wegdelen in de gemeente Amersfoort in 2025 "
@@ -560,9 +669,10 @@ def subcatalog_md(b, api):
                 "Bulkbewerkingen vinden: tijdstippen waarop één bronhouder honderden bestaande "
                 "objecten tegelijk een nieuwe versie gaf (de eerste levering, zonder "
                 "`voorgaandeVersie`, telt niet mee):",
-                """
+                f"""
+                {S3_SECRET}
                 SELECT bronhouder, tijdstipRegistratie, count(*) AS versies
-                FROM read_parquet('*/*/*.parquet', union_by_name => true)
+                FROM read_parquet('{group_url('bgt', None)}/*/*/*.parquet', union_by_name => true)
                 WHERE voorgaandeVersie IS NOT NULL
                 GROUP BY ALL HAVING count(*) >= 500
                 ORDER BY versies DESC
@@ -613,7 +723,8 @@ def subcatalog_md(b, api):
     elif api == "postcode6":
         lines += [
             "Een rij per postcodegebied (bijvoorbeeld 3811LM) op 1 januari 2024, zonder historie. "
-            "`gemeentecode`, `wijkcode` en `buurtcode` verwijzen naar de collecties in "
+            + postcode6_scope(b)
+            + "`gemeentecode`, `wijkcode` en `buurtcode` verwijzen naar de collecties in "
             "`../wijkenbuurten`; een postcodegebied hoort bij de buurt waarin een punt binnen het "
             "gebied ligt. Cijfers per buurt of wijk uit de Kerncijfers wijken en buurten van het CBS "
             "(WOZ-waarde, inkomen) zitten er niet in.\n",
@@ -631,6 +742,34 @@ def subcatalog_md(b, api):
             ),
         ]
     return "\n".join(lines)
+
+
+def postcode6_scope(b, claims=True):
+    """Which postcode areas the extract holds, from the data."""
+    t = next(t for t in b.types if t["api"] == "postcode6")
+    rows = b.db.sql(
+        f"SELECT gemeentecode, count(*), string_agg(postcode, ', ' ORDER BY postcode) "
+        f"FROM '{b.parquet(t)}' GROUP BY ALL ORDER BY 2 DESC"
+    ).fetchall()
+    main, rest = rows[0], rows[1:]
+    text = f"Het uittreksel bevat {n(main[1])} postcodegebieden in gemeente {main[0]}"
+    if rest:
+        text += (
+            f" en {n(sum(r[1] for r in rest))} daarbuiten ("
+            + "; ".join(f"{r[2]} in gemeente {r[0]}" for r in rest)
+            + "), die adressen in de BAG van dit uittreksel hebben"
+        )
+    claim = ""
+    if rest and claims:
+        claim = b.claim(
+            "de postcodegebieden buiten de gemeente hebben adressen in de BAG van dit uittreksel",
+            f"""
+            SELECT p.postcode FROM '{url('postcode6', 'postcode6')}' p
+            WHERE p.gemeentecode <> '{main[0]}'
+              AND p.postcode NOT IN (SELECT postcode FROM '{url('bag', 'nummeraanduiding')}' WHERE postcode IS NOT NULL)
+            """,
+        )
+    return text + ". " + claim
 
 
 def group_md(b, api, group):
@@ -652,13 +791,13 @@ def collection_md(b, t):
     api, typ = t["api"], t["type"]
     cwd = b.parquet(t).parent
     f = f"{typ}.parquet"
-    rows = b.db.sql(f"SELECT count(*) FROM '{b.parquet(t)}'").fetchone()[0]
     geoms = t["geometries"]
     to_root = os.path.relpath(b.catalog / "AGENTS.md", cwd)
     to_api = os.path.relpath(b.catalog / api / "AGENTS.md", cwd)
     lines = [f"# {t['label']} ({rel_dir(api, typ).as_posix()})\n"]
     lines.append(
-        f"De collectie `{typ}` van de API {API_BASE}/{api} als één bestand, `{f}`, {n(rows)} rijen. "
+        f"De collectie `{typ}` van de API {API_BASE}/{api} als één bestand, `{f}` (aantal rijen: "
+        "`table:row_count` in `collection.json`). "
         f"Algemene aanwijzingen: [AGENTS.md van de catalogus]({to_root}); versies en verwijzingen "
         f"van de registratie: [AGENTS.md van {api}]({to_api}). Beschrijvingen van de kolommen: "
         "`collection.json` (`table:columns`) en de README.\n"
@@ -668,12 +807,13 @@ def collection_md(b, t):
         lines.append(f"- Geometriekolommen: {g}; CRS EPSG:28992, bounding-boxkolommen `<naam>_bbox`.")
     else:
         lines.append("- Geen geometrie: een gewoon Parquet-bestand.")
-    n_current = b.db.sql(f"SELECT count(*) FROM '{b.parquet(t)}' WHERE {cur(api)}").fetchone()[0]
+    n_current = b.db.sql(f"SELECT count(*) FROM '{b.parquet(t)}' {where(cur(api))}").fetchone()[0]
     if api in CURRENT:
         lines.append(
-            f"- Actuele versies: `WHERE {CURRENT[api]}`, {n(n_current)} rijen."
+            f"- Actuele versies: `WHERE {CURRENT[api]}`."
             + (
-                " Geen: alle objecten in deze collectie zijn beëindigd, alleen de historie is er nog."
+                " Er zijn er geen: alle objecten in deze collectie zijn beëindigd, alleen de historie "
+                "is er nog."
                 if not n_current
                 else ""
             )
@@ -696,13 +836,14 @@ def collection_md(b, t):
         lines.append(f"- Verwijzingen: {', '.join(refs)}.")
     lines.append("")
     lines.append("## Voorbeelden (DuckDB)\n")
-    where = cur(api) if n_current else "true"
+    cond = cur(api) if n_current else None
     if api in CURRENT:
         title = "Vijf actuele versies:" if n_current else "Vijf versies:"
     else:
         title = "Vijf rijen:"
     exclude = f" EXCLUDE ({', '.join(x['name'] for x in geoms)})" if geoms else ""
-    lines.append(b.recipe(title, f"SELECT *{exclude}\nFROM '{f}'\nWHERE {where}\nLIMIT 5", cwd))
+    sql = f"SELECT *{exclude}\nFROM '{url(api, typ)}'\n" + (where(cond) + "\n" if cond else "") + "LIMIT 5"
+    lines.append(b.recipe(title, sql, cwd))
     if first_ref:
         c, target = first_ref
         tid = b.id_column[target]
@@ -713,13 +854,13 @@ def collection_md(b, t):
         )
         tgeoms = geometry_names(b, *target)
         texclude = f" EXCLUDE ({', '.join(tgeoms)})" if tgeoms else ""
-        sql = f"""
-            SELECT t.{b.id_column[(api, typ)]}, r.*{texclude}
-            FROM '{f}' t
-            JOIN '{rel(b, cwd, *target)}' r ON {on} AND {cur(target[0], 'r')}
-            WHERE {cur(api, 't') if n_current else 'true'}
-            LIMIT 5
-            """
+        sql = (
+            f"SELECT t.{b.id_column[(api, typ)]}, r.*{texclude}\n"
+            f"FROM '{url(api, typ)}' t\n"
+            f"JOIN '{url(*target)}' r ON {on} {where(cur(target[0], 'r'), keyword='AND')}\n"
+            + (where(cur(api, 't') if n_current else None) + "\n" if n_current and cur(api) else "")
+            + "LIMIT 5"
+        ).replace(" \n", "\n")
         if b.has_rows(sql, cwd):
             lines.append(b.recipe(f"De verwijzing `{c['name']}` volgen:", sql, cwd))
     if api == "bgt":

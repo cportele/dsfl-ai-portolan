@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.104091Z",
+      "breaking": false,
+      "assets": {
+        "openbareruimtelabel.parquet": {
+          "sha256": "f1fb1780f29795603d657cb5183454b2bd997c43c4083424a900db644cf0e7a7",
+          "size_bytes": 418574,
+          "href": "bgt/overig/openbareruimtelabel/openbareruimtelabel.parquet",
+          "source_path": "openbareruimtelabel.parquet",
+          "source_mtime": 1795164558.3460674,
+          "mtime": 1795164558.3460674,
+          "feature_count": 6983,
+          "schema_fingerprint": "37310e080e84f50e"
+        },
+        "thumbnail.png": {
+          "sha256": "51e5e83361f4215acf1dd00ce2876baf4adbc972cace6476b620cac0d24f2652",
+          "size_bytes": 222840,
+          "href": "bgt/overig/openbareruimtelabel/thumbnail.png",
+          "mtime": 1795263049.4594893
+        }
+      },
+      "changes": [
+        "openbareruimtelabel.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "schema_version": "1.0.0",
+  "catalog_id": "dsfl-ai-amersfoort",
+  "created": "2026-11-21T12:23:09.523372+00:00",
+  "collections": {
+    "bag/kenmerkinonderzoek": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 1,
+      "total_size_bytes": 42525
+    },
+    "bag/ligplaats": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 22828
+    },
+    "bag/nummeraanduiding": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 1,
+      "total_size_bytes": 2077727
+    },
+    "bag/openbareruimte": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 1,
+      "total_size_bytes": 42612
+    },
+    "bag/pand": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 14253393
+    },
+    "bag/standplaats": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 43720
+    },
+    "bag/verblijfsobject": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 9962744
+    },
+    "bag/woonplaats": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 88931
+    },
+    "bgt/inrichtingselementen/bak": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 198006
+    },
+    "bgt/inrichtingselementen/bord": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 56919
+    },
+    "bgt/inrichtingselementen/installatie": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 29945
+    },
+    "bgt/inrichtingselementen/kast": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 37769
+    },
+    "bgt/inrichtingselementen/mast": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 27117
+    },
+    "bgt/inrichtingselementen/paal": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 98789
+    },
+    "bgt/inrichtingselementen/put": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 66039
+    },
+    "bgt/inrichtingselementen/sensor": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 23871
+    },
+    "bgt/inrichtingselementen/straatmeubilair": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 34592
+    },
+    "bgt/inrichtingselementen/vegetatieobject": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 2496674
+    },
+    "bgt/inrichtingselementen/waterinrichtingselement": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 28755
+    },
+    "bgt/inrichtingselementen/weginrichtingselement": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 520338
+    },
+    "bgt/overig/functioneelgebied": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 16614
+    },
+    "bgt/overig/gebouwinstallatie": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 64956
+    },
+    "bgt/overig/ongeclassificeerdobject": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 17100
+    },
+    "bgt/overig/openbareruimtelabel": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 641414
+    },
+    "bgt/overig/overigescheiding": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 45926
+    },
+    "bgt/overig/spoor": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 146101
+    },
+    "bgt/overig/tunneldeel": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 46304
+    },
+    "bgt/topografie/begroeidterreindeel": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 37039347
+    },
+    "bgt/topografie/kunstwerkdeel": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 304433
+    },
+    "bgt/topografie/onbegroeidterreindeel": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 22376506
+    },
+    "bgt/topografie/ondersteunendwaterdeel": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 10591884
+    },
+    "bgt/topografie/ondersteunendwegdeel": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 4385156
+    },
+    "bgt/topografie/overbruggingsdeel": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 381144
+    },
+    "bgt/topografie/overigbouwwerk": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 2454174
+    },
+    "bgt/topografie/pand": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 13929503
+    },
+    "bgt/topografie/scheiding": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 4383873
+    },
+    "bgt/topografie/waterdeel": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 7874890
+    },
+    "bgt/topografie/wegdeel": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 42092043
+    },
+    "postcode6/postcode6": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 807340
+    },
+    "wijkenbuurten/buurt": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 168973
+    },
+    "wijkenbuurten/gemeente": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 55655
+    },
+    "wijkenbuurten/wijk": {
+      "updated": "2026-11-21T12:23:29.108099+00:00",
+      "current_version": "1.0.0",
+      "asset_count": 2,
+      "total_size_bytes": 101433
+    }
+  },
+  "updated": "2026-11-21T12:23:29.108099+00:00"
+}

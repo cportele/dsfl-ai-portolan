@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.103078Z",
+      "breaking": false,
+      "assets": {
+        "thumbnail.png": {
+          "sha256": "cfee91625b9a4d52db9b61f428b541d800752c216d06583ce3a0d99b07c60798",
+          "size_bytes": 12210,
+          "href": "bgt/inrichtingselementen/waterinrichtingselement/thumbnail.png",
+          "mtime": 1795263049.8235025
+        },
+        "waterinrichtingselement.parquet": {
+          "sha256": "2a3e96a303ca85ff3bb24f42ee3a48aab3396860bac4155220cd02625fb789db",
+          "size_bytes": 16545,
+          "href": "bgt/inrichtingselementen/waterinrichtingselement/waterinrichtingselement.parquet",
+          "source_path": "waterinrichtingselement.parquet",
+          "source_mtime": 1795164563.4779007,
+          "mtime": 1795164563.4779007,
+          "feature_count": 215,
+          "schema_fingerprint": "4a71aa0ef2b88c8b"
+        }
+      },
+      "changes": [
+        "thumbnail.png",
+        "waterinrichtingselement.parquet"
+      ]
+    }
+  ]
+}

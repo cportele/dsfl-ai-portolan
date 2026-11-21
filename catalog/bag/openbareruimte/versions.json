@@ -1,0 +1,22 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.099937Z",
+      "breaking": false,
+      "assets": {
+        "openbareruimte.parquet": {
+          "sha256": "1b3ef81fcf4afd5a00beed25a03aceb94063e4e1cd0f6392a22bca6655d2a1a6",
+          "size_bytes": 42612,
+          "href": "bag/openbareruimte/openbareruimte.parquet",
+          "mtime": 1795164494.7722137
+        }
+      },
+      "changes": [
+        "openbareruimte.parquet"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+{
+  "type": "Collection",
+  "id": "wijkenbuurten/buurt",
+  "stac_version": "1.1.0",
+  "description": "Een buurt volgens de CBS Wijk- en Buurtkaart 2026, het kleinste gebied van de indeling van een gemeente in wijken en buurten. Dezelfde eigenschappen als de collectie [buurt](https://bag.ldproxy.net/wijkenbuurten/collections/buurt) van de API. Voor agents: [AGENTS.md](AGENTS.md).",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "license",
+      "href": "https://creativecommons.org/licenses/by/4.0/deed.nl",
+      "title": "License"
+    },
+    {
+      "rel": "via",
+      "href": "https://api.pdok.nl/cbs/wijken-en-buurten-2026/ogc/v1",
+      "type": "text/html",
+      "title": "Original source"
+    },
+    {
+      "rel": "agents",
+      "href": "./AGENTS.md",
+      "type": "text/markdown",
+      "title": "Agent/LLM usage guide"
+    },
+    {
+      "rel": "describedby",
+      "href": "./README.md",
+      "type": "text/markdown",
+      "title": "Human-readable documentation"
+    }
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/table/v1.2.0/schema.json",
+    "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+    "https://schemas.portolan-sdi.org/portolan/v0.2.0/schema.json"
+  ],
+  "updated": "2026-11-21T12:23:28Z",
+  "geoparquet:geometry_type": [
+    "MultiPolygon"
+  ],
+  "geoparquet:feature_count": 145,
+  "table:row_count": 145,
+  "table:primary_geometry": "geometrie",
+  "table:columns": [
+    {
+      "name": "code",
+      "type": "string",
+      "description": "De code van de buurt: 'BU', de gemeentecode, het wijknummer en een tweecijferig buurtnummer. De code is de id van het object (feature id)."
+    },
+    {
+      "name": "naam",
+      "type": "string",
+      "description": "De naam van de buurt. Buurtnamen zijn alleen binnen een gemeente uniek."
+    },
+    {
+      "name": "wijk",
+      "type": "string",
+      "description": "De wijk waarin de buurt ligt, als wijkcode (bijvoorbeeld WK030701). Verwijst naar code in de collectie wijkenbuurten/wijk."
+    },
+    {
+      "name": "gemeente",
+      "type": "string",
+      "description": "De gemeente waarin de buurt ligt, als gemeentecode (bijvoorbeeld 0307). Verwijst naar code in de collectie wijkenbuurten/gemeente."
+    },
+    {
+      "name": "wijknaam",
+      "type": "string",
+      "description": "De naam van de wijk waarin de buurt ligt."
+    },
+    {
+      "name": "gemeentenaam",
+      "type": "string",
+      "description": "De naam van de gemeente waarin de buurt ligt."
+    },
+    {
+      "name": "water",
+      "type": "bool",
+      "description": "Geeft aan of de buurt (vrijwel) geheel uit water bestaat."
+    },
+    {
+      "name": "geometrie",
+      "type": "binary",
+      "description": "De begrenzing van de buurt."
+    },
+    {
+      "name": "geometrie_bbox",
+      "type": "struct<xmin: float, ymin: float, xmax: float, ymax: float>",
+      "description": "Bounding box van geometrie (GeoParquet covering), om bij een ruimtelijke selectie rijgroepen over te slaan."
+    }
+  ],
+  "title": "Buurt (CBS)",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          5.3064586356450825,
+          52.1083843872586,
+          5.484329664176036,
+          52.21915384787237
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2026-01-01T00:00:00Z",
+          null
+        ]
+      ]
+    }
+  },
+  "license": "CC-BY-4.0",
+  "providers": [
+    {
+      "name": "Centraal Bureau voor de Statistiek (CBS)",
+      "roles": [
+        "producer",
+        "licensor"
+      ],
+      "url": "https://www.cbs.nl/"
+    },
+    {
+      "name": "interactive instruments GmbH",
+      "roles": [
+        "processor",
+        "host"
+      ],
+      "url": "https://www.interactive-instruments.de"
+    }
+  ],
+  "assets": {
+    "buurt": {
+      "href": "./buurt.parquet",
+      "type": "application/vnd.apache.parquet",
+      "file:size": 112021,
+      "file:checksum": "12206e014412b26cc3367f9e9e11a51dba05da90e1ca2464b875e3001780cc9dd80d",
+      "proj:code": "EPSG:28992",
+      "roles": [
+        "data"
+      ],
+      "title": "Buurt (CBS), GeoParquet",
+      "description": "Alle versies van de objecten, met de eigenschappen van de API als kolommen. GeoParquet 2.0, EPSG:28992, rijen gesorteerd langs een Hilbert-curve."
+    },
+    "thumbnail": {
+      "href": "./thumbnail.png",
+      "type": "image/png",
+      "file:size": 56952,
+      "file:checksum": "1220a0bcc5698e91f69a309dc77e7b9ae515ec5e0168cc8b812aa2c4e3217474afa8",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "Voorbeeld: Buurt (CBS)",
+      "description": "Kaartje van de actuele versies (of van alle versies als er geen actuele zijn), gekleurd naar de classificatie; gemaakt met scripts/thumbnails.py."
+    }
+  }
+}

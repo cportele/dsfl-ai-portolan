@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.107147Z",
+      "breaking": false,
+      "assets": {
+        "postcode6.parquet": {
+          "sha256": "deb554fc063a43816a062cf3f2e4caaa0d1a040a85336626d7ce884e2632e03d",
+          "size_bytes": 635511,
+          "href": "postcode6/postcode6/postcode6.parquet",
+          "source_path": "postcode6.parquet",
+          "source_mtime": 1795164567.005145,
+          "mtime": 1795164567.005145,
+          "feature_count": 3613,
+          "schema_fingerprint": "11f66cdb3c912a08"
+        },
+        "thumbnail.png": {
+          "sha256": "756a99c991b2086ef4305cf664f8f596f1cd3de1aa88bec2c45da00ea77af581",
+          "size_bytes": 171829,
+          "href": "postcode6/postcode6/thumbnail.png",
+          "mtime": 1795263050.3673105
+        }
+      },
+      "changes": [
+        "postcode6.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

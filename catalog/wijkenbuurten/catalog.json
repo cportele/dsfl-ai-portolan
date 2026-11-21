@@ -1,0 +1,53 @@
+{
+  "type": "Catalog",
+  "id": "wijkenbuurten",
+  "stac_version": "1.1.0",
+  "title": "Wijken en buurten 2026 (CBS)",
+  "description": "De gemeenten, wijken en buurten van Nederland per 1 januari 2026 volgens de Wijk- en Buurtkaart 2026 van het Centraal Bureau voor de Statistiek (CBS). Een gemeente is ingedeeld in wijken, een wijk in buurten. De gemeentegrenzen komen uit de Basisregistratie Kadaster. Het uittreksel bevat de gemeente Amersfoort met 33 wijken en 145 buurten.\n\nDe gegevens van de API [https://bag.ldproxy.net/wijkenbuurten](https://bag.ldproxy.net/wijkenbuurten) als GeoParquet. Voor agents: [AGENTS.md](AGENTS.md).",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./buurt/collection.json",
+      "type": "application/json",
+      "title": "Buurt (CBS)"
+    },
+    {
+      "rel": "child",
+      "href": "./gemeente/collection.json",
+      "type": "application/json",
+      "title": "Gemeente (CBS)"
+    },
+    {
+      "rel": "child",
+      "href": "./wijk/collection.json",
+      "type": "application/json",
+      "title": "Wijk (CBS)"
+    },
+    {
+      "rel": "agents",
+      "href": "./AGENTS.md",
+      "type": "text/markdown",
+      "title": "Agent/LLM usage guide"
+    },
+    {
+      "rel": "describedby",
+      "href": "./README.md",
+      "type": "text/markdown",
+      "title": "Human-readable documentation"
+    }
+  ],
+  "stac_extensions": [
+    "https://schemas.portolan-sdi.org/portolan/v0.2.0/schema.json"
+  ],
+  "updated": "2026-11-21T12:23:28Z"
+}

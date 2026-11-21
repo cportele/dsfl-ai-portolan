@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.107718Z",
+      "breaking": false,
+      "assets": {
+        "thumbnail.png": {
+          "sha256": "fb0c043d567de53545b8e14135776a77f6560dfca9ff84993642f0eb9d3b241d",
+          "size_bytes": 33628,
+          "href": "wijkenbuurten/wijk/thumbnail.png",
+          "mtime": 1795263050.069559
+        },
+        "wijk.parquet": {
+          "sha256": "c81f50af2d2baa78f7360809768354aef423e733362abdf5503196100fa01f96",
+          "size_bytes": 67805,
+          "href": "wijkenbuurten/wijk/wijk.parquet",
+          "source_path": "wijk.parquet",
+          "source_mtime": 1795164565.9210944,
+          "mtime": 1795164565.9210944,
+          "feature_count": 33,
+          "schema_fingerprint": "9ebf94ddd3ab06b4"
+        }
+      },
+      "changes": [
+        "thumbnail.png",
+        "wijk.parquet"
+      ]
+    }
+  ]
+}

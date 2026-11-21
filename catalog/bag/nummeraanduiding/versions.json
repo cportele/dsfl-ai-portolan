@@ -1,0 +1,22 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.099729Z",
+      "breaking": false,
+      "assets": {
+        "nummeraanduiding.parquet": {
+          "sha256": "e4b2be350516571bc8e92ac7a575c6954098cc7ac27670f22485792eb84e05b3",
+          "size_bytes": 2077727,
+          "href": "bag/nummeraanduiding/nummeraanduiding.parquet",
+          "mtime": 1795164496.6265938
+        }
+      },
+      "changes": [
+        "nummeraanduiding.parquet"
+      ]
+    }
+  ]
+}

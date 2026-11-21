@@ -1,0 +1,22 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.099091Z",
+      "breaking": false,
+      "assets": {
+        "kenmerkinonderzoek.parquet": {
+          "sha256": "5e419943fc5efd738d33b1f6c6393a0b95c7b68d888beec3b05320c8b6ba782d",
+          "size_bytes": 42525,
+          "href": "bag/kenmerkinonderzoek/kenmerkinonderzoek.parquet",
+          "mtime": 1795164518.8204424
+        }
+      },
+      "changes": [
+        "kenmerkinonderzoek.parquet"
+      ]
+    }
+  ]
+}

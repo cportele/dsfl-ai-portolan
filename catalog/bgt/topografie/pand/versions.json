@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.106359Z",
+      "breaking": false,
+      "assets": {
+        "pand.parquet": {
+          "sha256": "f5e418e04863a182f876d37798cd326d023930c76d2e7da990224910bbf19894",
+          "size_bytes": 13690303,
+          "href": "bgt/topografie/pand/pand.parquet",
+          "source_path": "pand.parquet",
+          "source_mtime": 1795164551.4316866,
+          "mtime": 1795164551.4316866,
+          "feature_count": 145507,
+          "schema_fingerprint": "5e23da8bf5e7683d"
+        },
+        "thumbnail.png": {
+          "sha256": "e3f3bc77fc7d538697546cac77bf2c8732020a87897ab449e78d35beb34d050d",
+          "size_bytes": 239200,
+          "href": "bgt/topografie/pand/thumbnail.png",
+          "mtime": 1795263048.4722261
+        }
+      },
+      "changes": [
+        "pand.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

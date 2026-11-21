@@ -1,0 +1,33 @@
+# Validates the catalog metadata with rashid and runs the documented queries and claim checks
+# against the published data, on every pull request and every push to master.
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rashid:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@v6
+      # The parquet files are not in git, so the data pass is skipped; it runs on the published
+      # catalog in docs-check.yml.
+      - run: uvx rashid==0.4.0 check --all --no-data catalog
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@v6
+      - run: uv run tests/check_docs.py catalog

@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.100143Z",
+      "breaking": false,
+      "assets": {
+        "pand.parquet": {
+          "sha256": "2438b9f81a698f94d2735114eccc2ad2442d8f0bb75e5b83d22f4a3acd0d7aa6",
+          "size_bytes": 13976859,
+          "href": "bag/pand/pand.parquet",
+          "source_path": "pand.parquet",
+          "source_mtime": 1795164505.2638183,
+          "mtime": 1795164505.2638183,
+          "feature_count": 182994,
+          "schema_fingerprint": "610ab54154a2ffb9"
+        },
+        "thumbnail.png": {
+          "sha256": "979043c9c1cba5f5e90e93985c5d243d0d7d9e3967cf1fd94f7a297b690f7a37",
+          "size_bytes": 276534,
+          "href": "bag/pand/thumbnail.png",
+          "mtime": 1795263040.9409015
+        }
+      },
+      "changes": [
+        "pand.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

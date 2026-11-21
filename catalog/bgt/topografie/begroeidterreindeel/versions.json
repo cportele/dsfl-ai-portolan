@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.104889Z",
+      "breaking": false,
+      "assets": {
+        "begroeidterreindeel.parquet": {
+          "sha256": "b337275e9e7378b7bf3a74b5e99752139fa87e69be9e5ef43df7be351660011e",
+          "size_bytes": 36788587,
+          "href": "bgt/topografie/begroeidterreindeel/begroeidterreindeel.parquet",
+          "source_path": "begroeidterreindeel.parquet",
+          "source_mtime": 1795164536.0737493,
+          "mtime": 1795164536.0737493,
+          "feature_count": 109574,
+          "schema_fingerprint": "391b7e0d321ad4d9"
+        },
+        "thumbnail.png": {
+          "sha256": "44aba47c0c2a9c6e88eb6cee04fcdf789f4b1aca67140408f7d8b6c71d36919e",
+          "size_bytes": 250760,
+          "href": "bgt/topografie/begroeidterreindeel/thumbnail.png",
+          "mtime": 1795263045.632686
+        }
+      },
+      "changes": [
+        "begroeidterreindeel.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.101587Z",
+      "breaking": false,
+      "assets": {
+        "kast.parquet": {
+          "sha256": "5382273bf5f729cb93ade04073b5a7c680d243958a423fa13573b21b7f9b587c",
+          "size_bytes": 14266,
+          "href": "bgt/inrichtingselementen/kast/kast.parquet",
+          "source_path": "kast.parquet",
+          "source_mtime": 1795164560.711776,
+          "mtime": 1795164560.711776,
+          "feature_count": 79,
+          "schema_fingerprint": "bfeafd7eb7e0ff4b"
+        },
+        "thumbnail.png": {
+          "sha256": "ec5710f4f32610a4207d671af2229bb24f85ea139d950a22ffacebafd548f3d1",
+          "size_bytes": 23503,
+          "href": "bgt/inrichtingselementen/kast/thumbnail.png",
+          "mtime": 1795263049.629903
+        }
+      },
+      "changes": [
+        "kast.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

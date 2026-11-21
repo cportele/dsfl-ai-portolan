@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.102196Z",
+      "breaking": false,
+      "assets": {
+        "put.parquet": {
+          "sha256": "aa992e6b4ff8470294b5846d1a39552711e5b260114787929bab79f1c30046e5",
+          "size_bytes": 38608,
+          "href": "bgt/inrichtingselementen/put/put.parquet",
+          "source_path": "put.parquet",
+          "source_mtime": 1795164562.1485612,
+          "mtime": 1795164562.1485612,
+          "feature_count": 831,
+          "schema_fingerprint": "086e03e3f201bcd1"
+        },
+        "thumbnail.png": {
+          "sha256": "d13c0f59c5b50ef7db51c6e890610a68e47a8bf030db89841575eb5c0fb41fd0",
+          "size_bytes": 27431,
+          "href": "bgt/inrichtingselementen/put/thumbnail.png",
+          "mtime": 1795263049.7366493
+        }
+      },
+      "changes": [
+        "put.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "type": "Catalog",
+  "id": "dsfl-ai-amersfoort",
+  "stac_version": "1.1.0",
+  "description": "De gegevens achter de OGC API's op [bag.ldproxy.net](https://bag.ldproxy.net) als GeoParquet, met historie: de Basisregistratie Adressen en Gebouwen (BAG) voor de gemeente Amersfoort en de Basisregistratie Grootschalige Topografie (BGT) voor de omgeving van Amersfoort, met de gemeenten, wijken en buurten en de postcodegebieden van het CBS. Een collectie per objecttype van de API's, met dezelfde eigenschappen. Voor agents: [AGENTS.md](AGENTS.md). Elke API is ook een MCP-server; voor agents die die gebruiken is er de skill [dsfl-ai-gebouwde-omgeving](https://github.com/cportele/dsfl-ai/tree/master/skills/dsfl-ai-gebouwde-omgeving).",
+  "links": [
+    {
+      "rel": "root",
+      "href": "./catalog.json",
+      "type": "application/json",
+      "title": "Dsfl Ai Amersfoort"
+    },
+    {
+      "rel": "child",
+      "href": "./bag/catalog.json",
+      "type": "application/json",
+      "title": "Basisregistratie Adressen en Gebouwen (BAG)"
+    },
+    {
+      "rel": "child",
+      "href": "./bgt/catalog.json",
+      "type": "application/json",
+      "title": "Basisregistratie Grootschalige Topografie (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./postcode6/catalog.json",
+      "type": "application/json",
+      "title": "Postcodegebieden 2024 (CBS)"
+    },
+    {
+      "rel": "child",
+      "href": "./wijkenbuurten/catalog.json",
+      "type": "application/json",
+      "title": "Wijken en buurten 2026 (CBS)"
+    },
+    {
+      "rel": "agents",
+      "href": "./AGENTS.md",
+      "type": "text/markdown",
+      "title": "Agent/LLM usage guide"
+    },
+    {
+      "rel": "describedby",
+      "href": "./README.md",
+      "type": "text/markdown",
+      "title": "Human-readable documentation"
+    },
+    {
+      "rel": "icon",
+      "href": "./_assets/logo.png",
+      "type": "image/png",
+      "title": "DSFL AI Amersfoort"
+    },
+    {
+      "rel": "vcs",
+      "href": "https://github.com/cportele/dsfl-ai-portolan",
+      "type": "text/html",
+      "title": "Repository met de scripts van deze catalogus"
+    },
+    {
+      "rel": "issues",
+      "href": "https://github.com/cportele/dsfl-ai-portolan/issues",
+      "type": "text/html",
+      "title": "Fouten en vragen"
+    }
+  ],
+  "title": "Amersfoort: BAG, BGT en CBS-gebieden (DSFL AI)",
+  "stac_extensions": [
+    "https://schemas.portolan-sdi.org/portolan/v0.2.0/schema.json"
+  ],
+  "updated": "2026-11-21T12:23:28Z"
+}

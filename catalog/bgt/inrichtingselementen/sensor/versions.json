@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.102473Z",
+      "breaking": false,
+      "assets": {
+        "sensor.parquet": {
+          "sha256": "ef7ca59c36858c54a95192ccf637eb6c94c099eb3ecdbbb53bd3a07242ab7c1d",
+          "size_bytes": 10520,
+          "href": "bgt/inrichtingselementen/sensor/sensor.parquet",
+          "source_path": "sensor.parquet",
+          "source_mtime": 1795164562.6054564,
+          "mtime": 1795164562.6054564,
+          "feature_count": 7,
+          "schema_fingerprint": "a01d8486506278c9"
+        },
+        "thumbnail.png": {
+          "sha256": "68eb22af585038bd3bc07a8e368003b2d3d6e27bf23aed76c702978d7372f432",
+          "size_bytes": 13351,
+          "href": "bgt/inrichtingselementen/sensor/thumbnail.png",
+          "mtime": 1795263049.764361
+        }
+      },
+      "changes": [
+        "sensor.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

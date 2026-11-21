@@ -1,0 +1,241 @@
+{
+  "type": "Collection",
+  "id": "bgt/topografie/waterdeel",
+  "stac_version": "1.1.0",
+  "description": "Kleinste functioneel onafhankelijk stukje water met gelijkblijvende, homogene eigenschappen en relaties dat er binnen het objecttype Water van NEN 3610 wordt onderscheiden en dat permanent met water bedekt is. Met historie: een rij per versie van een object, sleutel identificatie en tijdstipRegistratie; de versies die nu in de registratie staan hebben geen eindRegistratie. Dezelfde eigenschappen als de collectie [waterdeel](https://bag.ldproxy.net/bgt/collections/waterdeel) van de API. Voor agents: [AGENTS.md](AGENTS.md).",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "license",
+      "href": "https://creativecommons.org/publicdomain/zero/1.0/deed.nl",
+      "title": "License"
+    },
+    {
+      "rel": "via",
+      "href": "https://www.pdok.nl/introductie/-/article/basisregistratie-grootschalige-topografie-bgt-",
+      "type": "text/html",
+      "title": "Original source"
+    },
+    {
+      "rel": "agents",
+      "href": "./AGENTS.md",
+      "type": "text/markdown",
+      "title": "Agent/LLM usage guide"
+    },
+    {
+      "rel": "describedby",
+      "href": "./README.md",
+      "type": "text/markdown",
+      "title": "Human-readable documentation"
+    }
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/projection/v2.0.0/schema.json",
+    "https://stac-extensions.github.io/table/v1.2.0/schema.json",
+    "https://stac-extensions.github.io/file/v2.1.0/schema.json",
+    "https://schemas.portolan-sdi.org/portolan/v0.2.0/schema.json"
+  ],
+  "updated": "2026-11-21T12:23:28Z",
+  "geoparquet:geometry_type": [
+    "Polygon"
+  ],
+  "geoparquet:feature_count": 12630,
+  "table:row_count": 12630,
+  "table:primary_geometry": "geometrie",
+  "table:columns": [
+    {
+      "name": "identificatie",
+      "type": "string",
+      "description": "Uniek identificatienummer voor het object dat onveranderlijk is zolang het object bestaat. Hier de lokaalID van de NEN3610-identificatie; De lokaalID bestaat uit de bronhoudercode van de bronhouder die het object heeft aangemaakt, een punt en een UUID van 32 hexadecimale tekens. Die bronhoudercode zegt niets over de huidige bronhouder (zie bronhouder) en de identificatie is uniek over alle collecties. De identificatie is de id van het object (feature id); alle versies van een object hebben dezelfde identificatie."
+    },
+    {
+      "name": "bgtType",
+      "type": "string",
+      "description": "Specificatie van het soort Water. BGT, authentiek. Waarden: codelijst TypeWater."
+    },
+    {
+      "name": "plusType",
+      "type": "string",
+      "description": "Specificatie van het soort Water, nadere classificatie. IMGeo-plus, niet authentiek; alleen gevuld als de bronhouder het bijhoudt. Waarden: codelijst TypeWaterPlus."
+    },
+    {
+      "name": "objectBeginTijd",
+      "type": "date32[day]",
+      "description": "Datum waarop het object bij de bronhouder is ontstaan. Deze datum moet altijd gelijk zijn aan de datum uit de tijdstipregistratie van het eerste voorkomen van het object. De objectBeginTijd is bij alle versies van een object gelijk; een object dat opnieuw is ingemeten of gecorrigeerd behoudt zijn objectBeginTijd. De BGT legt de formele levensduur vast (in de registratie), niet de ouderdom in de werkelijkheid: een object dat bij de opbouw van de BGT (vanaf 2013) is opgenomen, kan veel ouder zijn. BGT, authentiek."
+    },
+    {
+      "name": "objectEindTijd",
+      "type": "date32[day]",
+      "description": "Datum waarop het object bij de bronhouder niet meer geldig is. Leeg zolang het object bestaat. BGT, authentiek."
+    },
+    {
+      "name": "tijdstipRegistratie",
+      "type": "timestamp[us]",
+      "description": "Tijdstip waarop deze instantie van het object is opgenomen door de bronhouder. Als een mutatie niet resulteert in een nieuw object, dan ontstaat een nieuwe versie van het object. In deze situatie verandert het tijdstipRegistratie van het object, terwijl de objectBeginTijd gelijk blijft. Begin van de periode waarin deze versie in de registratie stond. De versies van een object sluiten naadloos op elkaar aan: de eindRegistratie van een versie is het tijdstipRegistratie van de volgende. Lokale tijd (Europe/Amsterdam). BGT, authentiek."
+    },
+    {
+      "name": "eindRegistratie",
+      "type": "timestamp[us]",
+      "description": "Eind van de periode waarop deze instantie van het object geldig is bij de bronhouder. Wanneer deze waarde niet is ingevuld is de instantie nog geldig. Leeg als de versie nog geldig is. Gevuld bij een nieuwe versie (met het tijdstipRegistratie van die versie) of bij het einde van het object (gelijk aan de objectEindTijd). BGT, authentiek."
+    },
+    {
+      "name": "lvPublicatiedatum",
+      "type": "timestamp[us]",
+      "description": "Tijdstip waarop deze instantie van het object is opgenomen in de Landelijke Voorziening. Het gegeven is optioneel omdat een nieuw object pas een LV-publicatiedatum krijgt als het voor de eerste keer wordt opgenomen in de Landelijke Voorziening. Voor en tijdens aanlevering van een nieuw object aan de Landelijke Voorziening ontbreekt dit gegeven nog. Het moment vanaf wanneer de versie voor afnemers beschikbaar was. Is een versie meer dan eens gepubliceerd (bijvoorbeeld opnieuw bij het einde van het object), dan de laatste publicatie. BGT, authentiek."
+    },
+    {
+      "name": "bronhouder",
+      "type": "string",
+      "description": "De bronhoudercode van het object. Een letter en vier cijfers: 'G' met de gemeentecode, 'P' met de provinciecode, 'W' met de waterschapscode of 'L' voor een landelijke organisatie, bijvoorbeeld G0307 (gemeente Amersfoort) of L0004 (ProRail). De namen staan in de codelijst bronhouder. BGT, authentiek."
+    },
+    {
+      "name": "inOnderzoek",
+      "type": "bool",
+      "description": "Een aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object. `true` als een of meer gegevens van deze versie in onderzoek zijn, dus mogelijk niet juist. BGT, authentiek."
+    },
+    {
+      "name": "relatieveHoogteligging",
+      "type": "int32",
+      "description": "Aanduiding voor de relatieve hoogte van het object. In deze gegevens van -1 tot en met 0. 0 is maaiveld, positief erboven (bijvoorbeeld 1 voor een brug), negatief eronder (bijvoorbeeld -1 voor een tunnel); bij overlappende objecten de volgorde van boven naar beneden. BGT, authentiek."
+    },
+    {
+      "name": "bgtStatus",
+      "type": "string",
+      "description": "De status gekoppeld aan de levenscyclus van een geo-object. Waarden: codelijst Status. BGT, authentiek."
+    },
+    {
+      "name": "plusStatus",
+      "type": "string",
+      "description": "De status gekoppeld aan de levenscyclus van een geo-object, indien dit een uitbreiding van de populatie betreft. Waarden: codelijst StatusPlus. Zonder bijhouding door de bronhouder 'geenWaarde'. IMGeo-plus, niet authentiek; alleen gevuld als de bronhouder het bijhoudt."
+    },
+    {
+      "name": "voorgaandeVersie",
+      "type": "timestamp[us]",
+      "description": "Het tijdstipRegistratie van de voorgaande versie van het object; leeg bij de eerste versie."
+    },
+    {
+      "name": "volgendeVersie",
+      "type": "timestamp[us]",
+      "description": "Het tijdstipRegistratie van de volgende versie van het object; leeg bij de laatste versie."
+    },
+    {
+      "name": "oppervlakte",
+      "type": "double",
+      "description": "De oppervlakte van het vlak in m² (op dm² afgerond), berekend uit de geometrie in het Rijksdriehoeksstelsel; bogen als bogen. Geen BGT-gegeven."
+    },
+    {
+      "name": "gemeentecode",
+      "type": "string",
+      "description": "Code van de gemeente waarin het object ligt, volgens de CBS Wijk- en Buurtkaart 2026, bijvoorbeeld 0307. Geen BGT-gegeven."
+    },
+    {
+      "name": "wijkcode",
+      "type": "string",
+      "description": "Code van de wijk waarin het object ligt, volgens de CBS Wijk- en Buurtkaart 2026, bijvoorbeeld WK030701. Geen BGT-gegeven."
+    },
+    {
+      "name": "buurtcode",
+      "type": "string",
+      "description": "Code van de buurt waarin het object ligt, volgens de CBS Wijk- en Buurtkaart 2026, bijvoorbeeld BU03070100. Geen BGT-gegeven."
+    },
+    {
+      "name": "gemeentenaam",
+      "type": "string",
+      "description": "Naam van de gemeente waarin het object ligt (zie gemeentecode), uit de CBS Wijk- en Buurtkaart 2026. Geen BGT-gegeven."
+    },
+    {
+      "name": "wijknaam",
+      "type": "string",
+      "description": "Naam van de wijk waarin het object ligt (zie wijkcode), uit de CBS Wijk- en Buurtkaart 2026. Wijk- en buurtnamen zijn alleen binnen een gemeente uniek; groepeer daarom op de wijkcode, samen met de naam. Geen BGT-gegeven."
+    },
+    {
+      "name": "buurtnaam",
+      "type": "string",
+      "description": "Naam van de buurt waarin het object ligt (zie buurtcode), uit de CBS Wijk- en Buurtkaart 2026. Wijk- en buurtnamen zijn alleen binnen een gemeente uniek; groepeer daarom op de buurtcode, samen met de naam. Geen BGT-gegeven."
+    },
+    {
+      "name": "geometrie",
+      "type": "binary",
+      "description": "Vlakgeometrie. Coördinaten in het Rijksdriehoeksstelsel (RD, EPSG:28992), in meter met maximaal drie decimalen; tweedimensionaal. Bogen (cirkelbogen in de BGT) blijven bogen in JSON-FG (`profile=jsonfg`: CircularString, CompoundCurve, CurvePolygon, MultiSurface); in GeoJSON en HTML worden ze door lijnstukken benaderd."
+    },
+    {
+      "name": "geometrie_bbox",
+      "type": "struct<xmin: float, ymin: float, xmax: float, ymax: float>",
+      "description": "Bounding box van geometrie (GeoParquet covering), om bij een ruimtelijke selectie rijgroepen over te slaan."
+    }
+  ],
+  "title": "Waterdeel (BGT)",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          5.308936660195422,
+          52.109542022977024,
+          5.484687372073691,
+          52.22424093022129
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2015-05-12T00:00:00Z",
+          null
+        ]
+      ]
+    }
+  },
+  "license": "CC0-1.0",
+  "providers": [
+    {
+      "name": "Bronhouders BGT, Landelijke Voorziening BGT (Kadaster)",
+      "roles": [
+        "producer",
+        "licensor"
+      ],
+      "url": "https://www.kadaster.nl/zakelijk/registraties/basisregistraties/bgt"
+    },
+    {
+      "name": "interactive instruments GmbH",
+      "roles": [
+        "processor",
+        "host"
+      ],
+      "url": "https://www.interactive-instruments.de"
+    }
+  ],
+  "assets": {
+    "waterdeel": {
+      "href": "./waterdeel.parquet",
+      "type": "application/vnd.apache.parquet",
+      "file:size": 7669332,
+      "file:checksum": "1220909cf9a060bef66d9fffee28918804d791e1ea3244ae80acfe00c2780fa5bc34",
+      "proj:code": "EPSG:28992",
+      "roles": [
+        "data"
+      ],
+      "title": "Waterdeel (BGT), GeoParquet",
+      "description": "Alle versies van de objecten, met de eigenschappen van de API als kolommen. GeoParquet 2.0, EPSG:28992, rijen gesorteerd langs een Hilbert-curve."
+    },
+    "thumbnail": {
+      "href": "./thumbnail.png",
+      "type": "image/png",
+      "file:size": 205558,
+      "file:checksum": "122066187eb461b3ac747a0a65311efdf70c18a2db002ae31ed2c884609954cfa2da",
+      "roles": [
+        "thumbnail"
+      ],
+      "title": "Voorbeeld: Waterdeel (BGT)",
+      "description": "Kaartje van de actuele versies (of van alle versies als er geen actuele zijn), gekleurd naar de classificatie; gemaakt met scripts/thumbnails.py."
+    }
+  }
+}

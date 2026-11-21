@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.106560Z",
+      "breaking": false,
+      "assets": {
+        "scheiding.parquet": {
+          "sha256": "4018fa0577bbc142b6917711f77153bbadfed19f205b16a8c066e6c063112ce6",
+          "size_bytes": 4165550,
+          "href": "bgt/topografie/scheiding/scheiding.parquet",
+          "source_path": "scheiding.parquet",
+          "source_mtime": 1795164555.2733417,
+          "mtime": 1795164555.2733417,
+          "feature_count": 44025,
+          "schema_fingerprint": "bc7f026f2a6a2127"
+        },
+        "thumbnail.png": {
+          "sha256": "afff9fe95ad0c0361a9da6eafb105e255e0a317f3bbd1b8d68098ab92faffdb5",
+          "size_bytes": 218323,
+          "href": "bgt/topografie/scheiding/thumbnail.png",
+          "mtime": 1795263049.1623487
+        }
+      },
+      "changes": [
+        "scheiding.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.104496Z",
+      "breaking": false,
+      "assets": {
+        "spoor.parquet": {
+          "sha256": "b496dad347b4750150a9e82130e1c102eed837321e9f33f1208c5eebd72a29f3",
+          "size_bytes": 111823,
+          "href": "bgt/overig/spoor/spoor.parquet",
+          "source_path": "spoor.parquet",
+          "source_mtime": 1795164529.1696897,
+          "mtime": 1795164529.1696897,
+          "feature_count": 1386,
+          "schema_fingerprint": "98cffa61edf53273"
+        },
+        "thumbnail.png": {
+          "sha256": "f02d928d7eedf5a8481963909bd77a4b71db1359e273fd2032ca7974d10ffbaa",
+          "size_bytes": 34278,
+          "href": "bgt/overig/spoor/thumbnail.png",
+          "mtime": 1795263044.121697
+        }
+      },
+      "changes": [
+        "spoor.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.102879Z",
+      "breaking": false,
+      "assets": {
+        "thumbnail.png": {
+          "sha256": "f76c48e9db03ea02a53bb77b777b1cce6d2e651da2c309e038ee296df4e308c5",
+          "size_bytes": 94307,
+          "href": "bgt/inrichtingselementen/vegetatieobject/thumbnail.png",
+          "mtime": 1795263050.0000281
+        },
+        "vegetatieobject.parquet": {
+          "sha256": "f1dedcd3d364bb8febab048560793e5b21ff706f7c715f05e37fcda9a1834575",
+          "size_bytes": 2402367,
+          "href": "bgt/inrichtingselementen/vegetatieobject/vegetatieobject.parquet",
+          "source_path": "vegetatieobject.parquet",
+          "source_mtime": 1795164564.9577353,
+          "mtime": 1795164564.9577353,
+          "feature_count": 11632,
+          "schema_fingerprint": "1aa1b80591828b01"
+        }
+      },
+      "changes": [
+        "thumbnail.png",
+        "vegetatieobject.parquet"
+      ]
+    }
+  ]
+}

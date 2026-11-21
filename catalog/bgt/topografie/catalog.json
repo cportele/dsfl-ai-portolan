@@ -1,0 +1,101 @@
+{
+  "type": "Catalog",
+  "id": "bgt/topografie",
+  "stac_version": "1.1.0",
+  "title": "Topografie (vlakken)",
+  "description": "De vlakken van de BGT: wegdelen, terreindelen (begroeid en onbegroeid), waterdelen, panden en de andere objecten op maaiveldniveau. Op maaiveldniveau (relatieveHoogteligging 0) bedekken de vlakken het gebied zonder gaten en zonder overlap, zodat de som van de oppervlakten per soort de verdeling van het gebied geeft, bijvoorbeeld hoeveel groen, verharding, water of bebouwing een buurt heeft. Voor agents: [AGENTS.md](AGENTS.md).",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./begroeidterreindeel/collection.json",
+      "type": "application/json",
+      "title": "BegroeidTerreindeel (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./kunstwerkdeel/collection.json",
+      "type": "application/json",
+      "title": "Kunstwerkdeel (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./onbegroeidterreindeel/collection.json",
+      "type": "application/json",
+      "title": "OnbegroeidTerreindeel (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./ondersteunendwaterdeel/collection.json",
+      "type": "application/json",
+      "title": "OndersteunendWaterdeel (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./ondersteunendwegdeel/collection.json",
+      "type": "application/json",
+      "title": "OndersteunendWegdeel (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./overbruggingsdeel/collection.json",
+      "type": "application/json",
+      "title": "Overbruggingsdeel (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./overigbouwwerk/collection.json",
+      "type": "application/json",
+      "title": "OverigBouwwerk (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./pand/collection.json",
+      "type": "application/json",
+      "title": "Pand (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./scheiding/collection.json",
+      "type": "application/json",
+      "title": "Scheiding (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./waterdeel/collection.json",
+      "type": "application/json",
+      "title": "Waterdeel (BGT)"
+    },
+    {
+      "rel": "child",
+      "href": "./wegdeel/collection.json",
+      "type": "application/json",
+      "title": "Wegdeel (BGT)"
+    },
+    {
+      "rel": "agents",
+      "href": "./AGENTS.md",
+      "type": "text/markdown",
+      "title": "Agent/LLM usage guide"
+    },
+    {
+      "rel": "describedby",
+      "href": "./README.md",
+      "type": "text/markdown",
+      "title": "Human-readable documentation"
+    }
+  ],
+  "stac_extensions": [
+    "https://schemas.portolan-sdi.org/portolan/v0.2.0/schema.json"
+  ],
+  "updated": "2026-11-21T12:23:28Z"
+}

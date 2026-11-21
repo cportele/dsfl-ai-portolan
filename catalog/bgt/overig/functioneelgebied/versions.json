@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.103478Z",
+      "breaking": false,
+      "assets": {
+        "functioneelgebied.parquet": {
+          "sha256": "f0de99caa68798c73d68bb4ddaefd1bd59040d9b1044e159c32a20b6a9824df0",
+          "size_bytes": 12227,
+          "href": "bgt/overig/functioneelgebied/functioneelgebied.parquet",
+          "source_path": "functioneelgebied.parquet",
+          "source_mtime": 1795164557.6633103,
+          "mtime": 1795164557.6633103,
+          "feature_count": 14,
+          "schema_fingerprint": "c0277a561cd6ce3f"
+        },
+        "thumbnail.png": {
+          "sha256": "c1c1de96ac9584eb4256fb2bc1f0e896cc63afda7ce8d3dcbc99cc8e29c481bd",
+          "size_bytes": 4387,
+          "href": "bgt/overig/functioneelgebied/thumbnail.png",
+          "mtime": 1795263049.369475
+        }
+      },
+      "changes": [
+        "functioneelgebied.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.104285Z",
+      "breaking": false,
+      "assets": {
+        "overigescheiding.parquet": {
+          "sha256": "85072960c7d627f1fdc7f8ed1a9c8f58243d569fd1898b230fd2bbcd003b14c5",
+          "size_bytes": 24285,
+          "href": "bgt/overig/overigescheiding/overigescheiding.parquet",
+          "source_path": "overigescheiding.parquet",
+          "source_mtime": 1795164555.7336469,
+          "mtime": 1795164555.7336469,
+          "feature_count": 160,
+          "schema_fingerprint": "2155eb6cd2671968"
+        },
+        "thumbnail.png": {
+          "sha256": "f9dab9ad44d022a24909af9eac3eafacd078f510d946797f4256895f15dc9635",
+          "size_bytes": 21641,
+          "href": "bgt/overig/overigescheiding/thumbnail.png",
+          "mtime": 1795263049.203768
+        }
+      },
+      "changes": [
+        "overigescheiding.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

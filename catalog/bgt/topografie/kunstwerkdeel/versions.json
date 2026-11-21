@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.105091Z",
+      "breaking": false,
+      "assets": {
+        "kunstwerkdeel.parquet": {
+          "sha256": "07494a131b3130d5fe102ab4b57c8bd9157e057e59c1a9e3fe1fd66186b52394",
+          "size_bytes": 216545,
+          "href": "bgt/topografie/kunstwerkdeel/kunstwerkdeel.parquet",
+          "source_path": "kunstwerkdeel.parquet",
+          "source_mtime": 1795164553.377398,
+          "mtime": 1795164553.377398,
+          "feature_count": 2413,
+          "schema_fingerprint": "9a94fd695d0f50b3"
+        },
+        "thumbnail.png": {
+          "sha256": "e270e69a1c0854dfc9e2326491adbf8db5715b44c70ba7d6cdd26943a18b865c",
+          "size_bytes": 87888,
+          "href": "bgt/topografie/kunstwerkdeel/thumbnail.png",
+          "mtime": 1795263048.8507783
+        }
+      },
+      "changes": [
+        "kunstwerkdeel.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

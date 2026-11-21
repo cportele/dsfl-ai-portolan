@@ -85,7 +85,7 @@ def write(src, t, target):
         options = [
             "COMPRESSION=ZSTD",
             f"ROW_GROUP_SIZE={ROW_GROUP_SIZE}",
-            "CREATOR=dsfl-ai scripts/portolan/export.py",
+            "CREATOR=https://github.com/cportele/dsfl-ai-portolan scripts/export.py",
         ]
         if defn.GetGeomFieldCount():
             options += ["WRITE_COVERING_BBOX=YES", "EDGES=PLANAR"]

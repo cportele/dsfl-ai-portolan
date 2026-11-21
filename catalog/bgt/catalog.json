@@ -1,0 +1,53 @@
+{
+  "type": "Catalog",
+  "id": "bgt",
+  "stac_version": "1.1.0",
+  "title": "Basisregistratie Grootschalige Topografie (BGT)",
+  "description": "De Basisregistratie Grootschalige Topografie (BGT) is de digitale kaart van Nederland op het niveau van straten en panden: wegdelen, terreindelen, waterdelen, panden, overige bouwwerken, kunstwerken, scheidingen en spoor, en als optionele IMGeo-informatie (plus) ook inrichtingselementen zoals palen, putten, kasten, borden, straatmeubilair en bomen. De objecten van het maaiveld (relatieveHoogteligging 0) dekken het gebied zonder gaten en overlappingen. Bron: BGT-extract van PDOK (CityGML, met historie) voor de omgeving van Amersfoort, stand 30 oktober 2026.\n\nDe gegevens van de API [https://bag.ldproxy.net/bgt](https://bag.ldproxy.net/bgt) als GeoParquet. Voor agents: [AGENTS.md](AGENTS.md).",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "child",
+      "href": "./inrichtingselementen/catalog.json",
+      "type": "application/json",
+      "title": "Inrichtingselementen"
+    },
+    {
+      "rel": "child",
+      "href": "./overig/catalog.json",
+      "type": "application/json",
+      "title": "Overige objecten"
+    },
+    {
+      "rel": "child",
+      "href": "./topografie/catalog.json",
+      "type": "application/json",
+      "title": "Topografie (vlakken)"
+    },
+    {
+      "rel": "agents",
+      "href": "./AGENTS.md",
+      "type": "text/markdown",
+      "title": "Agent/LLM usage guide"
+    },
+    {
+      "rel": "describedby",
+      "href": "./README.md",
+      "type": "text/markdown",
+      "title": "Human-readable documentation"
+    }
+  ],
+  "stac_extensions": [
+    "https://schemas.portolan-sdi.org/portolan/v0.2.0/schema.json"
+  ],
+  "updated": "2026-11-21T12:23:28Z"
+}

@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.106950Z",
+      "breaking": false,
+      "assets": {
+        "thumbnail.png": {
+          "sha256": "011b1a71afa7c8da8cb9483b570d4c294b3fabff9de6364fa3cc6058864692d4",
+          "size_bytes": 225398,
+          "href": "bgt/topografie/wegdeel/thumbnail.png",
+          "mtime": 1795263043.9177184
+        },
+        "wegdeel.parquet": {
+          "sha256": "6c06eeaf5a96e1dbf8507bf6b1e76b66422c1bb8a28c45eacd419d149504961f",
+          "size_bytes": 41866645,
+          "href": "bgt/topografie/wegdeel/wegdeel.parquet",
+          "source_path": "wegdeel.parquet",
+          "source_mtime": 1795164527.5678046,
+          "mtime": 1795164527.5678046,
+          "feature_count": 142656,
+          "schema_fingerprint": "b1849847376c8839"
+        }
+      },
+      "changes": [
+        "thumbnail.png",
+        "wegdeel.parquet"
+      ]
+    }
+  ]
+}

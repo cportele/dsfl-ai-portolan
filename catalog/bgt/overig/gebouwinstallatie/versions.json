@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.103678Z",
+      "breaking": false,
+      "assets": {
+        "gebouwinstallatie.parquet": {
+          "sha256": "3fc859e387e30f6bc7f20bd763398c135e71916d9536d2903ffe7846a2fc4f56",
+          "size_bytes": 40057,
+          "href": "bgt/overig/gebouwinstallatie/gebouwinstallatie.parquet",
+          "source_path": "gebouwinstallatie.parquet",
+          "source_mtime": 1795164557.1996372,
+          "mtime": 1795164557.1996372,
+          "feature_count": 234,
+          "schema_fingerprint": "6bf07a09354311dd"
+        },
+        "thumbnail.png": {
+          "sha256": "2098c34e002d0fa4247a9c38fb62bbc212d345f4694fbe4edbd1e5e490cd9b94",
+          "size_bytes": 24899,
+          "href": "bgt/overig/gebouwinstallatie/thumbnail.png",
+          "mtime": 1795263049.335028
+        }
+      },
+      "changes": [
+        "gebouwinstallatie.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

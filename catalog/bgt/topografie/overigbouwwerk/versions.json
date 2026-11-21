@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.106118Z",
+      "breaking": false,
+      "assets": {
+        "overigbouwwerk.parquet": {
+          "sha256": "fe8405c1ca5b266505f31fb54cce63a572f6557155dc152fbeb98af47e40cab8",
+          "size_bytes": 2372104,
+          "href": "bgt/topografie/overigbouwwerk/overigbouwwerk.parquet",
+          "source_path": "overigbouwwerk.parquet",
+          "source_mtime": 1795164552.8393502,
+          "mtime": 1795164552.8393502,
+          "feature_count": 27805,
+          "schema_fingerprint": "e1a3b9366257c6b8"
+        },
+        "thumbnail.png": {
+          "sha256": "f74f09798a51075bcbc17449a32c989c34f9795e1879cc1b8490a946f9c80da6",
+          "size_bytes": 82070,
+          "href": "bgt/topografie/overigbouwwerk/thumbnail.png",
+          "mtime": 1795263048.7850142
+        }
+      },
+      "changes": [
+        "overigbouwwerk.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

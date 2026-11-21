@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.105296Z",
+      "breaking": false,
+      "assets": {
+        "onbegroeidterreindeel.parquet": {
+          "sha256": "029c73d3f77654d5a1fa0564d36906bb20c4f4f3e1f73187383fcbab2e879775",
+          "size_bytes": 22033123,
+          "href": "bgt/topografie/onbegroeidterreindeel/onbegroeidterreindeel.parquet",
+          "source_path": "onbegroeidterreindeel.parquet",
+          "source_mtime": 1795164542.0234706,
+          "mtime": 1795164542.0234706,
+          "feature_count": 72868,
+          "schema_fingerprint": "65979f402a8d9b34"
+        },
+        "thumbnail.png": {
+          "sha256": "8b8931789a15b82a96a31156d621962cb5e197d671be0cd8c0d3048bac56f7d5",
+          "size_bytes": 343383,
+          "href": "bgt/topografie/onbegroeidterreindeel/thumbnail.png",
+          "mtime": 1795263046.6569092
+        }
+      },
+      "changes": [
+        "onbegroeidterreindeel.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}

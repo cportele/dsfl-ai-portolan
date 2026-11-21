@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.100757Z",
+      "breaking": false,
+      "assets": {
+        "thumbnail.png": {
+          "sha256": "bd27e3d101972c919a2f2e5a83d9f68f0d5038b547f4a3ab9a7ef60a8dbed0d1",
+          "size_bytes": 20201,
+          "href": "bag/woonplaats/thumbnail.png",
+          "mtime": 1795263037.2491336
+        },
+        "woonplaats.parquet": {
+          "sha256": "08cb1388d42a0b3e07e31cf33f77d15a78cce2746d5041f1612b9da65c26dd2e",
+          "size_bytes": 68730,
+          "href": "bag/woonplaats/woonplaats.parquet",
+          "source_path": "woonplaats.parquet",
+          "source_mtime": 1795164494.7129483,
+          "mtime": 1795164494.7129483,
+          "feature_count": 10,
+          "schema_fingerprint": "d3420f44c3cf9293"
+        }
+      },
+      "changes": [
+        "thumbnail.png",
+        "woonplaats.parquet"
+      ]
+    }
+  ]
+}

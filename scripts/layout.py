@@ -6,6 +6,7 @@ inrichtingselementen-in-gebied (IMGeo plus) and overige-objecten-in-gebied, plus
 part of wegen-in-gebied, not of the area queries).
 """
 
+import re
 from pathlib import Path
 
 GROUPS = {
@@ -28,12 +29,15 @@ GROUPS = {
         "inrichtingselementen": {
             "title": "Inrichtingselementen",
             "description": (
-                "Bakken (afvalbakken, bloembakken), borden (verkeersborden, straatnaamborden), "
-                "installaties, kasten, masten, palen (lichtmasten, hectometerpalen, afsluitpalen), "
-                "putten, sensoren, straatmeubilair (banken, fietsenrekken, speeltoestellen, abri's), "
-                "water- en weginrichtingselementen en vegetatieobjecten (bomen, hagen). De soort staat "
-                "in plusType. Dit is optionele IMGeo-informatie: alleen aanwezig waar de bronhouder "
-                "(meestal de gemeente) het bijhoudt."
+                "Bakken ({bak:plusType}), borden ({bord:plusType}), installaties "
+                "({installatie:plusType}), kasten ({kast:plusType}), masten ({mast:plusType}), palen "
+                "({paal:plusType}), putten ({put:plusType}), sensoren ({sensor:plusType}), "
+                "straatmeubilair ({straatmeubilair:plusType}), waterinrichtingselementen "
+                "({waterinrichtingselement:plusType}), weginrichtingselementen "
+                "({weginrichtingselement:plusType}) en vegetatieobjecten ({vegetatieobject:plusType}). "
+                "De soort staat in plusType; tussen haakjes de meest voorkomende soorten in deze "
+                "gegevens. Dit is optionele IMGeo-informatie: alleen aanwezig waar de bronhouder het "
+                "bijhoudt."
             ),
             "types": [
                 "bak", "bord", "installatie", "kast", "mast", "paal", "put", "sensor",
@@ -44,13 +48,12 @@ GROUPS = {
         "overig": {
             "title": "Overige objecten",
             "description": (
-                "Spoor en de objecten die niet bij de topografie of de inrichtingselementen horen: "
-                "functionele gebieden (bgtType 'kering' voor een waterkering, plusType bijvoorbeeld "
-                "'recreatie: park', 'recreatie: speeltuin', 'begraafplaats'), gebouwinstallaties "
-                "(plusType 'luifel', 'bordes', 'toegangstrap'), tunneldelen, overige scheidingen "
-                "(plusType bijvoorbeeld 'muur', 'kademuur', 'geluidsscherm', 'hek'), ongeclassificeerde "
-                "objecten en openbareruimtelabels (de straatnamen op de kaart). Functionele gebieden "
-                "overlappen de vlakken van de topografie."
+                "Spoor ({spoor:bgtFunctie}) en de objecten die niet bij de topografie of de "
+                "inrichtingselementen horen: functionele gebieden ({functioneelgebied:plusType}), "
+                "gebouwinstallaties ({gebouwinstallatie:plusType}), tunneldelen, overige scheidingen "
+                "({overigescheiding:plusType}), ongeclassificeerde objecten en openbareruimtelabels "
+                "(de straatnamen op de kaart). Tussen haakjes de soorten in deze gegevens. "
+                "Functionele gebieden overlappen de vlakken van de topografie."
             ),
             "types": [
                 "spoor", "functioneelgebied", "gebouwinstallatie", "tunneldeel", "overigescheiding",
@@ -59,6 +62,10 @@ GROUPS = {
         },
     },
 }
+
+
+# "{type:column}" in a group description: the most frequent values of the column in that collection
+VALUES = re.compile(r"\{(\w+):(\w+)\}")
 
 
 def group_of(api, typ):

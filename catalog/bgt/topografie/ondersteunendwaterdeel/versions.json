@@ -1,0 +1,33 @@
+{
+  "spec_version": "1.0.0",
+  "current_version": "1.0.0",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "created": "2026-11-21T12:23:29.105510Z",
+      "breaking": false,
+      "assets": {
+        "ondersteunendwaterdeel.parquet": {
+          "sha256": "e1d1079d11f9eaa29b352b7d1baae544cf935be33073aebf4230153ea8c1a456",
+          "size_bytes": 10508775,
+          "href": "bgt/topografie/ondersteunendwaterdeel/ondersteunendwaterdeel.parquet",
+          "source_path": "ondersteunendwaterdeel.parquet",
+          "source_mtime": 1795164544.943677,
+          "mtime": 1795164544.943677,
+          "feature_count": 13456,
+          "schema_fingerprint": "351f330198e21c3d"
+        },
+        "thumbnail.png": {
+          "sha256": "ad05b9f3630b9900a3aa59e47b74af357da82f8aa5409ce1c6a56653f4476a79",
+          "size_bytes": 83109,
+          "href": "bgt/topografie/ondersteunendwaterdeel/thumbnail.png",
+          "mtime": 1795263047.3121572
+        }
+      },
+      "changes": [
+        "ondersteunendwaterdeel.parquet",
+        "thumbnail.png"
+      ]
+    }
+  ]
+}
