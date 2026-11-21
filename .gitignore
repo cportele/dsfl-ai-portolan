@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+.venv/
+# build intermediates (manifest of the export)
+build/
+# data files are published to the bucket, not to git
+*.parquet
+*.pmtiles
+*.gpkg
+# portolan-cli working state
+catalog/**/.portolan/*.lock
+catalog/**/.portolan/.versions.lock
